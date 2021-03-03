@@ -7,23 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */; };
+		CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */; };
+		CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */; };
+		CE82C23D25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */; };
+		CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */; };
+		CE82C24725EBC20000FE6896 /* CommunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C24625EBC20000FE6896 /* CommunitiesTableViewCell.swift */; };
+		CE874DAF25EBD40300E4C42A /* AllCommunitiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DAE25EBD40300E4C42A /* AllCommunitiesTableViewCell.swift */; };
+		CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */; };
+		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
+		CE874DB825EBE4CA00E4C42A /* CommuniteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB725EBE4CA00E4C42A /* CommuniteModel.swift */; };
 		CE9BA97325DC477400F0A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97225DC477400F0A60C /* AppDelegate.swift */; };
 		CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97425DC477400F0A60C /* SceneDelegate.swift */; };
-		CE9BA97725DC477400F0A60C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97625DC477400F0A60C /* ViewController.swift */; };
 		CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97825DC477400F0A60C /* Main.storyboard */; };
 		CE9BA97C25DC477600F0A60C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97B25DC477600F0A60C /* Assets.xcassets */; };
 		CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */; };
+		CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */; };
+		CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */; };
+		CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950525EEB9C2002B9A80 /* AvatarView.swift */; };
+		CEFD950B25EEE611002B9A80 /* LikeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950A25EEE611002B9A80 /* LikeAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewController.swift; sourceTree = "<group>"; };
+		CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewController.swift; sourceTree = "<group>"; };
+		CE82C24625EBC20000FE6896 /* CommunitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewCell.swift; sourceTree = "<group>"; };
+		CE874DAE25EBD40300E4C42A /* AllCommunitiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewCell.swift; sourceTree = "<group>"; };
+		CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewController.swift; sourceTree = "<group>"; };
+		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE874DB725EBE4CA00E4C42A /* CommuniteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuniteModel.swift; sourceTree = "<group>"; };
 		CE9BA96F25DC477400F0A60C /* ClientVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BA97225DC477400F0A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9BA97425DC477400F0A60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE9BA97625DC477400F0A60C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE9BA97925DC477400F0A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE9BA97B25DC477600F0A60C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE9BA97E25DC477600F0A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE9BA98025DC477600F0A60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CEFD950525EEB9C2002B9A80 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		CEFD950A25EEE611002B9A80 /* LikeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +63,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE71324425E9802400CE98BD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE82C23425EA8B6300FE6896 /* cells */,
+				CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */,
+				CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */,
+				CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */,
+				CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */,
+				CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CE71324625E9805D00CE98BD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CE71324725E9807000CE98BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CE9BA97225DC477400F0A60C /* AppDelegate.swift */,
+				CE9BA97425DC477400F0A60C /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CE71324825E9808900CE98BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE874DB425EBE49C00E4C42A /* User.swift */,
+				CE874DB725EBE4CA00E4C42A /* CommuniteModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE71324925E980A400CE98BD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD950425EEB992002B9A80 /* components */,
+				CE9BA97825DC477400F0A60C /* Main.storyboard */,
+				CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE82C23425EA8B6300FE6896 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */,
+				CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */,
+				CE82C24625EBC20000FE6896 /* CommunitiesTableViewCell.swift */,
+				CE874DAE25EBD40300E4C42A /* AllCommunitiesTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		CE9BA96625DC477400F0A60C = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +142,24 @@
 		CE9BA97125DC477400F0A60C /* ClientVK */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BA97225DC477400F0A60C /* AppDelegate.swift */,
-				CE9BA97425DC477400F0A60C /* SceneDelegate.swift */,
-				CE9BA97625DC477400F0A60C /* ViewController.swift */,
-				CE9BA97825DC477400F0A60C /* Main.storyboard */,
+				CE71324925E980A400CE98BD /* Views */,
+				CE71324825E9808900CE98BD /* Models */,
+				CE71324725E9807000CE98BD /* App */,
+				CE71324625E9805D00CE98BD /* Helpers */,
+				CE71324425E9802400CE98BD /* Controllers */,
 				CE9BA97B25DC477600F0A60C /* Assets.xcassets */,
-				CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */,
 				CE9BA98025DC477600F0A60C /* Info.plist */,
 			);
 			path = ClientVK;
+			sourceTree = "<group>";
+		};
+		CEFD950425EEB992002B9A80 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				CEFD950525EEB9C2002B9A80 /* AvatarView.swift */,
+				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +232,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9BA97725DC477400F0A60C /* ViewController.swift in Sources */,
+				CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */,
+				CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */,
+				CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */,
 				CE9BA97325DC477400F0A60C /* AppDelegate.swift in Sources */,
+				CE82C23D25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift in Sources */,
+				CE874DB525EBE49C00E4C42A /* User.swift in Sources */,
+				CE874DAF25EBD40300E4C42A /* AllCommunitiesTableViewCell.swift in Sources */,
+				CE82C24725EBC20000FE6896 /* CommunitiesTableViewCell.swift in Sources */,
+				CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */,
+				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
+				CE874DB825EBE4CA00E4C42A /* CommuniteModel.swift in Sources */,
+				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
+				CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */,
+				CEFD950B25EEE611002B9A80 /* LikeAction.swift in Sources */,
+				CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
