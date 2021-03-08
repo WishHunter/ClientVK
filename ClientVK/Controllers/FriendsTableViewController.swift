@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FriendsTableViewController: UITableViewController {
+class FriendsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var friends: [User] = User.fakeContent
     var firstSymbols: [Character]!
@@ -18,23 +20,30 @@ class FriendsTableViewController: UITableViewController {
         firstSymbols = createFirstSimbols()
         sortFriends = sortUsers()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //scrollToSection
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 2), at: .top, animated: true)
+    }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return sortFriends.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sortFriends[firstSymbols[section]]?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return String(firstSymbols[section])
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         let friend = sortFriends[firstSymbols[indexPath.section]]?[indexPath.item]
@@ -47,8 +56,7 @@ class FriendsTableViewController: UITableViewController {
                 
         return cell
     }
-    
-    
+  
     //MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,12 +65,13 @@ class FriendsTableViewController: UITableViewController {
             let photoToFriendController = segue.destination as! PhotoToFriendCollectionViewController
 
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let name = self.friends[indexPath.item].name
+                let friend = sortFriends[firstSymbols[indexPath.section]]?[indexPath.item]
+                let name = friend?.name
 
                 
-                photoToFriendController.user = self.friends[indexPath.item]
+                photoToFriendController.user = friend
                 
-                photoToFriendController.navigationItem.title = "\(name)'s photos"
+                photoToFriendController.navigationItem.title = "\(String(name ?? "friend"))'s photos"
             }
         }
     }
@@ -76,7 +85,7 @@ extension FriendsTableViewController {
             setSimbols.insert(friend.name.first ?? " ")
         })
         
-        return Array(setSimbols)
+        return Array(setSimbols).sorted(by: {simbol, nextSimbol in return simbol < nextSimbol})
     }
     
     private func sortUsers() -> [Character: [User]] {
