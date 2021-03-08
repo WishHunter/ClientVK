@@ -8,7 +8,9 @@
 import UIKit
 
 class PhotoToFriendCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-        
+    
+    var user: User?
+    
     var photo = [
         "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
         "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
@@ -38,16 +40,19 @@ class PhotoToFriendCollectionViewController: UICollectionViewController, UIColle
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photo.count
+        return user?.photos.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoToFriendCollectionViewCell
+
+        if let image = user?.photos[indexPath.item][0] {
+            cell.photo.image = UIImage(named: image)
+        } else {
+            cell.photo.image = UIImage(systemName: "person.crop.circle")
+        }
         
-        let imgURL: NSURL = NSURL(string: photo[indexPath.item])!
-        let imgData: NSData = NSData(contentsOf: imgURL as URL)!
-        cell.photo.image = UIImage(data: imgData as Data)
-        
+        cell.likes.numberOfLikes = Int(user?.photos[indexPath.item][1] ?? "0") ?? 0
         return cell
     }    
 }

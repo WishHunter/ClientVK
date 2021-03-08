@@ -171,7 +171,7 @@
                                 <connections>
                                     <outlet property="label" destination="BxF-bu-pko" id="Kbi-q7-OaG"/>
                                     <outlet property="photo" destination="AvO-FN-EIA" id="1KN-f1-xe4"/>
-                                    <segue destination="nau-vM-Qni" kind="show" id="1nv-9a-vNa"/>
+                                    <segue destination="nau-vM-Qni" kind="show" identifier="selectFriend" id="1nv-9a-vNa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -205,29 +205,30 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" reuseIdentifier="photoCell" id="SCp-8i-pl2" customClass="PhotoToFriendCollectionViewCell" customModule="ClientVK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="Rzu-OZ-x5X">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VtX-6J-oID">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N83-hG-x8f">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="118"/>
+                                            <rect key="frame" x="0.0" y="-25" width="128" height="153"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-JK-3Jt" customClass="LikeAction" customModule="ClientVK" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="103" width="128" height="25"/>
-                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-JK-3Jt" customClass="LikeAction" customModule="ClientVK">
+                                            <rect key="frame" x="0.0" y="93" width="128" height="25"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="YLB-4W-2ty"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="BpO-JK-3Jt" firstAttribute="leading" secondItem="Rzu-OZ-x5X" secondAttribute="leading" id="6L3-bD-GhY"/>
+                                        <constraint firstItem="BpO-JK-3Jt" firstAttribute="leading" secondItem="VtX-6J-oID" secondAttribute="leading" id="6L3-bD-GhY"/>
                                         <constraint firstAttribute="trailing" secondItem="BpO-JK-3Jt" secondAttribute="trailing" id="fiD-gT-XhK"/>
-                                        <constraint firstAttribute="bottom" secondItem="BpO-JK-3Jt" secondAttribute="bottom" id="rSo-3S-Bql"/>
+                                        <constraint firstAttribute="bottom" secondItem="BpO-JK-3Jt" secondAttribute="bottom" constant="10" id="rSo-3S-Bql"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <connections>
+                                    <outlet property="likes" destination="BpO-JK-3Jt" id="FHb-Gw-diM"/>
                                     <outlet property="photo" destination="N83-hG-x8f" id="Wbl-J8-E6u"/>
                                 </connections>
                             </collectionViewCell>
@@ -241,7 +242,38 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRT-Qn-eDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5965" y="-241"/>
+            <point key="canvasLocation" x="5963.768115942029" y="-241.07142857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="S4A-Ah-jvi">
+            <objects>
+                <viewController id="DEw-8c-iLi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6YC-pO-53c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4T-6g-JRh">
+                                <rect key="frame" x="87" y="318" width="240" height="128"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhc-tL-xIj">
+                                        <rect key="frame" x="0.0" y="8" width="240" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zhc-tL-xIj" secondAttribute="bottom" id="CHM-ia-G6m"/>
+                                    <constraint firstItem="zhc-tL-xIj" firstAttribute="height" secondItem="i4T-6g-JRh" secondAttribute="height" id="dZP-j8-Ejs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CSy-fk-0WD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFS-3a-SiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6929" y="-213"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="394-zR-iY0">
@@ -434,9 +466,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -50,7 +50,9 @@ class FriendsTableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let name = self.friends[indexPath.item].name
 
-
+                
+                photoToFriendController.user = self.friends[indexPath.item]
+                
                 photoToFriendController.navigationItem.title = "\(name)'s photos"
             }
         }

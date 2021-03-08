@@ -19,10 +19,6 @@ import UIKit
     private var imageView: UIImageView!
     private var backView: UIView!
     
-    override func draw(_ rect: CGRect) {
-            super.draw(rect)
-    }
-    
     open var imageName: String? {
         didSet {
             if let image = imageName {
