@@ -10,29 +10,38 @@ import UIKit
 class FriendsTableViewController: UITableViewController {
     
     var friends: [User] = User.fakeContent
+    var firstSymbols: [Character]!
+    var sortFriends: [Character: [User]]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstSymbols = createFirstSimbols()
+        sortFriends = sortUsers()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sortFriends.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return sortFriends[firstSymbols[section]]?.count ?? 0
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return String(firstSymbols[section])
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
-        let friend = friends[indexPath.item]
+        let friend = sortFriends[firstSymbols[indexPath.section]]?[indexPath.item]
         
-        cell.label.text = friend.name
+        cell.label.text = friend?.name
         
-        if let photo = friend.photo {
+        if let photo = friend?.photo {
             cell.photo.imageName = photo
         }
                 
@@ -56,5 +65,29 @@ class FriendsTableViewController: UITableViewController {
                 photoToFriendController.navigationItem.title = "\(name)'s photos"
             }
         }
+    }
+}
+
+extension FriendsTableViewController {
+    
+    private func createFirstSimbols() -> [Character] {
+        var setSimbols: Set<Character> = []
+        friends.forEach({ friend in
+            setSimbols.insert(friend.name.first ?? " ")
+        })
+        
+        return Array(setSimbols)
+    }
+    
+    private func sortUsers() -> [Character: [User]] {
+        var newUsers: [Character: [User]] = [:]
+        
+        firstSymbols.forEach({ simbol in
+            newUsers[simbol] = friends.filter({friend in
+                return friend.name.first == simbol
+            })
+        })
+        
+        return newUsers
     }
 }
