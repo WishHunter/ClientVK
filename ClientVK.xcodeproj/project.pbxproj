@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5826C1CF25F90200004B345A /* AlphabetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5826C1CE25F90200004B345A /* AlphabetPicker.swift */; };
 		CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */; };
 		CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */; };
 		CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5826C1CE25F90200004B345A /* AlphabetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetPicker.swift; sourceTree = "<group>"; };
 		CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				CEFD950525EEB9C2002B9A80 /* AvatarView.swift */,
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
+				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				CE874DB825EBE4CA00E4C42A /* CommuniteModel.swift in Sources */,
 				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
 				CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */,
+				5826C1CF25F90200004B345A /* AlphabetPicker.swift in Sources */,
 				CEFD950B25EEE611002B9A80 /* LikeAction.swift in Sources */,
 				CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */,
 			);

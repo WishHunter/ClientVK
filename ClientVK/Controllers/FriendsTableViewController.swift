@@ -10,6 +10,7 @@ import UIKit
 class FriendsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var alphabetView: AlphabetPicker!
     
     var friends: [User] = User.fakeContent
     var firstSymbols: [Character]!
@@ -17,6 +18,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        alphabetView.letters = createFirstSimbols()
         firstSymbols = createFirstSimbols()
         sortFriends = sortUsers()
     }
