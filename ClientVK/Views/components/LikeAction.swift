@@ -49,7 +49,6 @@ class LikeAction: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         stackConst()
-//        stackView.frame = bounds
         
     }
     

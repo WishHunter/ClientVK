@@ -49,10 +49,10 @@ class AlphabetPicker: UIControl {
 
         self.addSubview(stackView)
 
-        stackView.spacing = 20
+        stackView.spacing = 10
         stackView.axis = .vertical
-//        stackView.alignment = .center
-//        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.distribution = .fillEqually
 
     }
     
@@ -65,13 +65,22 @@ class AlphabetPicker: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackView.frame = bounds
+        stackConst()
     }
     
     @objc private func selectLetter(_ sender: UIButton) {
-        print(#function)
         guard let index = self.buttons.firstIndex(of: sender) else { return }
         guard let letter = Optional(letters[index]) else { return }
         self.selectedLetter = letter
+    }
+}
+
+extension AlphabetPicker {
+    private func stackConst() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let widthConst = NSLayoutConstraint(item: stackView!, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0)
+        let verticalCenteringConst = NSLayoutConstraint(item: stackView!, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
+        
+        self.addConstraints([widthConst, verticalCenteringConst])
     }
 }

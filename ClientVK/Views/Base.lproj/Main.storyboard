@@ -124,8 +124,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-i1-hzW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Rn-i1-hzW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="60" id="YVF-Gi-nHX" customClass="FriendsTableViewCell" customModule="ClientVK" customModuleProvider="target">
@@ -184,7 +184,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qlm-It-BQh" customClass="AlphabetPicker" customModule="ClientVK" customModuleProvider="target">
-                                <rect key="frame" x="364" y="384" width="50" height="128"/>
+                                <rect key="frame" x="364" y="0.0" width="50" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="dyb-fC-ikP"/>
@@ -194,11 +194,15 @@
                         <viewLayoutGuide key="safeArea" id="MxX-8k-co7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4Rn-i1-hzW" firstAttribute="leading" secondItem="MxX-8k-co7" secondAttribute="leading" id="8rI-Nb-Yo8"/>
+                            <constraint firstItem="Qlm-It-BQh" firstAttribute="height" secondItem="Yrh-LW-Uue" secondAttribute="height" id="Cqg-6a-raM"/>
                             <constraint firstItem="Qlm-It-BQh" firstAttribute="centerY" secondItem="Yrh-LW-Uue" secondAttribute="centerY" id="Hmf-zR-pti"/>
                             <constraint firstItem="4Rn-i1-hzW" firstAttribute="width" secondItem="Yrh-LW-Uue" secondAttribute="width" id="OVY-mA-xVB"/>
+                            <constraint firstItem="4Rn-i1-hzW" firstAttribute="top" secondItem="Yrh-LW-Uue" secondAttribute="top" id="Pqr-Cr-fPf"/>
+                            <constraint firstAttribute="bottom" secondItem="4Rn-i1-hzW" secondAttribute="bottom" id="auU-Tb-Wc7"/>
                             <constraint firstItem="MxX-8k-co7" firstAttribute="trailing" secondItem="Qlm-It-BQh" secondAttribute="trailing" id="azf-KH-LIl"/>
                             <constraint firstItem="4Rn-i1-hzW" firstAttribute="height" secondItem="Yrh-LW-Uue" secondAttribute="height" id="q67-73-a9l"/>
-                            <constraint firstItem="Qlm-It-BQh" firstAttribute="height" secondItem="Yrh-LW-Uue" secondAttribute="height" multiplier="0.142857" id="sM5-og-ph4"/>
+                            <constraint firstItem="4Rn-i1-hzW" firstAttribute="trailing" secondItem="MxX-8k-co7" secondAttribute="trailing" id="qgo-IQ-ON0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="gaK-5R-gN2"/>
@@ -209,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68f-15-xUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5135" y="-321"/>
+            <point key="canvasLocation" x="5134.7826086956529" y="-321.42857142857139"/>
         </scene>
         <!--Friend's photo-->
         <scene sceneID="01u-S0-nhT">
@@ -277,17 +281,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4T-6g-JRh">
-                                <rect key="frame" x="87" y="318" width="240" height="128"/>
+                                <rect key="frame" x="39" y="211" width="335" height="459"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhc-tL-xIj">
-                                        <rect key="frame" x="0.0" y="8" width="240" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="center" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-ep-Nik">
+                                        <rect key="frame" x="144" y="0.0" width="46" height="482"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw5-xP-xzh">
+                                                <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YZ-Gb-Cjl">
+                                                <rect key="frame" x="0.0" y="113" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAZ-kk-lls">
+                                                <rect key="frame" x="0.0" y="226" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEw-8P-UpB">
+                                                <rect key="frame" x="0.0" y="339" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOl-0B-dKo">
+                                                <rect key="frame" x="0.0" y="452" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="zhc-tL-xIj" secondAttribute="bottom" id="CHM-ia-G6m"/>
-                                    <constraint firstItem="zhc-tL-xIj" firstAttribute="height" secondItem="i4T-6g-JRh" secondAttribute="height" id="dZP-j8-Ejs"/>
+                                    <constraint firstItem="gaf-ep-Nik" firstAttribute="width" secondItem="i4T-6g-JRh" secondAttribute="width" id="I5D-pI-owA"/>
+                                    <constraint firstItem="gaf-ep-Nik" firstAttribute="centerY" secondItem="i4T-6g-JRh" secondAttribute="centerY" id="Pkx-Gr-C4D"/>
+                                    <constraint firstItem="gaf-ep-Nik" firstAttribute="height" secondItem="i4T-6g-JRh" secondAttribute="height" id="Svg-9h-pQa"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -297,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFS-3a-SiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6888" y="-321"/>
+            <point key="canvasLocation" x="6886.9565217391309" y="-321.42857142857139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="394-zR-iY0">
