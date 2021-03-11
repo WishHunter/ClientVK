@@ -69,9 +69,11 @@ class AlphabetPicker: UIControl {
     }
     
     @objc private func selectLetter(_ sender: UIButton) {
-        guard let index = self.buttons.firstIndex(of: sender) else { return }
-        guard let letter = Optional(letters[index]) else { return }
+        guard let index = self.buttons.firstIndex(of: sender),
+              let letter = Optional(letters[index])
+        else { return }
         self.selectedLetter = letter
+        sendActions(for: .valueChanged)
     }
 }
 

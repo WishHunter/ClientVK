@@ -25,9 +25,6 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //scrollToSection
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 2), at: .top, animated: true)
     }
 
     // MARK: - Table view data source
@@ -76,6 +73,15 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
                 photoToFriendController.navigationItem.title = "\(String(name ?? "friend"))'s photos"
             }
         }
+    }
+    
+    
+    //MARK: - Action
+    
+    @IBAction func AlphabetPickerValueChanged(_ sender: AlphabetPicker) {
+        let section = firstSymbols.firstIndex(of: sender.selectedLetter ?? firstSymbols[0]) ?? 0
+        
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: section), at: .top, animated: true)
     }
 }
 

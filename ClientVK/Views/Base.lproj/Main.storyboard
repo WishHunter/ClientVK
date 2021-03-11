@@ -189,6 +189,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="dyb-fC-ikP"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="AlphabetPickerValueChanged:" destination="YM0-j4-pgj" eventType="valueChanged" id="Y9E-KL-uo1"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MxX-8k-co7"/>
