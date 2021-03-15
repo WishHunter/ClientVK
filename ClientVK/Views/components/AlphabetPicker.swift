@@ -35,7 +35,6 @@ class AlphabetPicker: UIControl {
     }
     
     private func setupView() {
-        print(letters)
         for letter in letters {
             let button = UIButton(type: .system)
             button.setTitle(String(letter), for: .normal)

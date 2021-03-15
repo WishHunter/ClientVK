@@ -9,18 +9,12 @@ import UIKit
 
 class CommunitiesTableViewController: UITableViewController {
 
-    var myCommunities = [
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 11"],
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 12"],
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 13"],
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 14"],
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 15"],
-        ["https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg", "сообщество 16"],
-    ]
-
+    var myCommunities: [Communities] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
     }
 
     // MARK: - Table view data source
@@ -35,13 +29,10 @@ class CommunitiesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunitiesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
-        cell.label.text = myCommunities[indexPath.item][1]
-        
-        let imgURL: NSURL = NSURL(string: myCommunities[indexPath.item][0])!
-        let imgData: NSData = NSData(contentsOf: imgURL as URL)!
-        cell.photo.image = UIImage(data: imgData as Data)
+        cell.label.text = myCommunities[indexPath.item].name
+        cell.photo.imageName = myCommunities[indexPath.item].photo
         
         return cell
     }
@@ -63,17 +54,17 @@ class CommunitiesTableViewController: UITableViewController {
         
         if segue.identifier == "myComToAlCom" {
             let allCommunitiesContainer = segue.destination as! AllCommunitiesTableViewController
-            let allCommunies = allCommunitiesContainer.allCommunities.filter({communite in
+            let allCommunies = allCommunitiesContainer.allCommunities.filter({community -> Bool in
                 var communiteRepeat = false
                 
-                for myCommunite in self.myCommunities {
-                    if myCommunite == communite {
+                for myCommunity in self.myCommunities {
+                    if myCommunity.name == community.name {
                         communiteRepeat = true
                     }
                 }
                 return !communiteRepeat
             })
-            
+          
             allCommunitiesContainer.allCommunities = allCommunies
         }
     }

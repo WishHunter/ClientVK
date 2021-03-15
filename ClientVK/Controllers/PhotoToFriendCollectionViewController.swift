@@ -11,15 +11,6 @@ class PhotoToFriendCollectionViewController: UICollectionViewController, UIColle
     
     var user: User?
     
-    var photo = [
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-        "https://static.probusiness.io/720x480c/n/03/d/38097027_439276526579800_2735888197547458560_n.jpg",
-    ]
-
     override func viewDidLoad() {
         super.viewDidLoad()        
     }
@@ -54,5 +45,19 @@ class PhotoToFriendCollectionViewController: UICollectionViewController, UIColle
         
         cell.likes.numberOfLikes = Int(user?.photos[indexPath.item][1] ?? "0") ?? 0
         return cell
-    }    
+    }
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "selectedPhoto" else {
+            return
+        }        
+        let photoController = segue.destination as! FullScreenPhotoViewController
+        
+        if let indexPath = self.collectionView.indexPathsForSelectedItems,
+           let image = user?.photos[indexPath[0][1]][0]{
+            photoController.photoName = String(image)
+        }
+    }
 }

@@ -7,11 +7,14 @@
 
 import UIKit
 
+@IBDesignable
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - Life Cicle
     
@@ -21,6 +24,8 @@ class LoginViewController: UIViewController {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
+        style()
         
     }
     
@@ -66,15 +71,6 @@ class LoginViewController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
-    //MARK: - Actions
-    
-//    @IBAction func signIn(_ sender: UIButton) {
-//        let storybord = UIStoryboard(name: "Main", bundle: nil)
-//        let starterTabBarController = storybord.instantiateViewController(identifier: "starterTabBarController")
-        
-//        present(starterTabBarController, animated: true, completion: nil)
-//        navigationController?.pushViewController(starterTabBarController, animated: true)
-//    }
     
     //MARK: - Segue
     
@@ -92,3 +88,85 @@ class LoginViewController: UIViewController {
 //        return true
 //    }
 }
+
+//MARK: - Style
+
+extension LoginViewController {
+    func style() {
+        background()
+        logo()
+        input()
+        button()
+    }
+    
+    func background() {
+        let colorBottom =  UIColor(red: 113/255, green: 217/255, blue: 254/255, alpha: 1)
+        let colorTop = UIColor(red: 64/255, green: 176/255, blue: 250/255, alpha: 1)
+        let endY = 0.5 + view.frame.size.width / view.frame.size.height / 2
+        
+        self.view.addGradient(colorTop: colorTop, colorBottom: colorBottom, type: .radial, startPoint: CGPoint(x: 0.5, y: 0.5), endPoint: CGPoint(x: 1, y: endY))
+
+        let imageLayer = UIImageView(frame: UIScreen.main.bounds)
+        imageLayer.image = UIImage(named: "loginViewBg")
+        imageLayer.contentMode = .scaleAspectFill
+
+        imageLayer.frame = self.view.bounds
+
+        self.view.insertSubview(imageLayer, at: 1)
+    }
+    
+    func logo() {
+        let logoLayer = logoImage.layer
+        logoLayer.shadowColor = UIColor(red: 34/255.0, green: 139/255, blue: 201/255, alpha: 1).cgColor
+        logoLayer.shadowOffset = CGSize(width: 4, height: 10)
+        logoLayer.shadowRadius = CGFloat(26)
+        logoLayer.shadowOpacity = 1
+        logoLayer.masksToBounds = false
+    }
+    
+    func input() {
+        loginInput.addBottomBorder()
+        passwordInput.addBottomBorder()
+        
+        let loginImageView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 17))
+        let loginImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 15, height: 17))
+        loginImage.image = UIImage(named: "user")
+        loginImageView.addSubview(loginImage)
+        
+        loginInput.leftView = loginImageView
+        loginInput.leftViewMode = .always
+        
+        let passwordImageView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 13))
+        let passwordImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 13, height: 13))
+        passwordImage.image = UIImage(named: "password")
+        passwordImageView.addSubview(passwordImage)
+        
+        passwordInput.leftView = passwordImageView
+        passwordInput.leftViewMode = .always
+        
+        let eyeImageView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 14))
+        let eyeImage = UIImageView(frame: CGRect(x: 10, y: 0, width: 20, height: 14))
+        eyeImage.image = UIImage(named: "eye")
+        eyeImageView.addSubview(eyeImage)
+        
+        passwordInput.rightView = eyeImageView
+        passwordInput.rightViewMode = .always
+        
+    }
+    
+    func button() {
+        let bgColor =  UIColor(red: 242/255, green: 97/255, blue: 54/255, alpha: 1)
+        let shadowColor =  UIColor(red: 215/255, green: 84/255, blue: 45/255, alpha: 1)
+        
+        loginButton.addShadow(to: [.bottom, .right], radius: 9.0, color: shadowColor)
+        loginButton.backgroundColor = bgColor
+
+        let button = loginButton.layer
+
+        button.cornerRadius = 17
+        button.borderWidth = 3
+        button.borderColor = UIColor.white.cgColor
+        button.masksToBounds = true
+    }
+}
+
