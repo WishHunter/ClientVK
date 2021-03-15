@@ -42,13 +42,13 @@ class LikeAction: UIControl {
         label.text = String(self.numberOfLikes)
         button.addTarget(self, action: #selector(likeTapped), for: .touchUpInside)
         
-        
         stile()
+        stackConst()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackConst()
+        
         
     }
     

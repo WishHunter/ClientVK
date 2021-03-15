@@ -52,6 +52,8 @@ class AlphabetPicker: UIControl {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .fillEqually
+        
+        stackConst()
 
     }
     
@@ -64,7 +66,6 @@ class AlphabetPicker: UIControl {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackConst()
     }
     
     @objc private func selectLetter(_ sender: UIButton) {

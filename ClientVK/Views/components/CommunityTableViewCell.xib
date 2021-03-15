@@ -13,11 +13,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="KGk-i7-Jjw" customClass="CommunityTableViewCell" customModule="ClientVK" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="351" height="81"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="351" height="81"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-EC-Qjj">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-EC-Qjj">
                         <rect key="frame" x="90" y="30" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -35,7 +35,7 @@
                 <constraints>
                     <constraint firstItem="aJj-EC-Qjj" firstAttribute="leading" secondItem="SE3-aa-iAw" secondAttribute="trailing" constant="20" id="BUL-HE-KqL"/>
                     <constraint firstItem="aJj-EC-Qjj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Eu3-Gd-nYl"/>
-                    <constraint firstAttribute="bottom" secondItem="SE3-aa-iAw" secondAttribute="bottom" constant="10" id="WNa-4J-CY6"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SE3-aa-iAw" secondAttribute="bottom" constant="10" id="WNa-4J-CY6"/>
                     <constraint firstItem="SE3-aa-iAw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="lfq-od-MnV"/>
                     <constraint firstItem="SE3-aa-iAw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pFI-j2-gda"/>
                 </constraints>

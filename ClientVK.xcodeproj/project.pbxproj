@@ -131,7 +131,6 @@
 				CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */,
 				CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */,
 				CE09934625FE7651000D7B4F /* CommunityTableViewCell.swift */,
-				CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -173,6 +172,7 @@
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
 				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
 				CE6A597825FEA1AA00393ECC /* PhotoView.swift */,
+				CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */,
 			);
 			path = components;
 			sourceTree = "<group>";

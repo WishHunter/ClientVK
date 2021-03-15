@@ -193,7 +193,7 @@ with your friends right now!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-wh-q8J" customClass="AvatarView" customModule="ClientVK">
-                                                    <rect key="frame" x="10" y="10" width="60" height="60.5"/>
+                                                    <rect key="frame" x="10" y="10" width="60" height="60"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Fld-8Q-j0u"/>
@@ -215,7 +215,7 @@ with your friends right now!</string>
                                             <constraints>
                                                 <constraint firstItem="m5M-wh-q8J" firstAttribute="leading" secondItem="PnW-zZ-wmy" secondAttribute="leading" constant="10" id="Oj6-uM-yVU"/>
                                                 <constraint firstItem="m5M-wh-q8J" firstAttribute="top" secondItem="PnW-zZ-wmy" secondAttribute="top" constant="10" id="b4o-LD-7oD"/>
-                                                <constraint firstAttribute="bottom" secondItem="m5M-wh-q8J" secondAttribute="bottom" constant="10" id="gIz-UH-m5Z"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m5M-wh-q8J" secondAttribute="bottom" constant="10" id="gIz-UH-m5Z"/>
                                                 <constraint firstItem="aF7-pU-jne" firstAttribute="leading" secondItem="m5M-wh-q8J" secondAttribute="trailing" constant="20" id="myg-hS-gJm"/>
                                                 <constraint firstItem="aF7-pU-jne" firstAttribute="centerY" secondItem="PnW-zZ-wmy" secondAttribute="centerY" id="pER-8V-Fh1"/>
                                             </constraints>
