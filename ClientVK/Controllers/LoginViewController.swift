@@ -162,11 +162,22 @@ extension LoginViewController {
         loginButton.backgroundColor = bgColor
 
         let button = loginButton.layer
+        
+//        let view = UIView(frame: CGRect(x: 0, y: -(loginButton.frame.height), width: loginButton.frame.width, height: loginButton.frame.height))
+//
+//        view.backgroundColor = .blue
+//
+//        view.layer.shadowColor = UIColor.blue.cgColor
+//        view.layer.shadowOffset = CGSize(width: 0, height: 10)
+//        view.layer.shadowOpacity = 1
+//        view.layer.shadowRadius = CGFloat(9)
+//
+//        loginButton.addSubview(view)
 
         button.cornerRadius = 17
         button.borderWidth = 3
         button.borderColor = UIColor.white.cgColor
-        button.masksToBounds = true
+//        button.masksToBounds = true
     }
 }
 

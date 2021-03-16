@@ -76,7 +76,6 @@
 		CE71324425E9802400CE98BD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CE82C23425EA8B6300FE6896 /* cells */,
 				CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */,
 				CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */,
 				CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */,
@@ -118,6 +117,7 @@
 		CE71324925E980A400CE98BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CE82C23425EA8B6300FE6896 /* cells */,
 				CEFD950425EEB992002B9A80 /* components */,
 				CE9BA97825DC477400F0A60C /* Main.storyboard */,
 				CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */,
