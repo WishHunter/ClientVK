@@ -23,51 +23,43 @@ extension UIView {
     }
     
     func addShadow(to edges: [UIRectEdge], offset: CGFloat = 20, radius: CGFloat = 3.0, opacity: Float = 0.6, color: UIColor = UIColor.black) {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
-        view.layer.masksToBounds = true
+        let view = CALayer()
+        view.masksToBounds = true
+        view.cornerRadius = self.layer.cornerRadius
+        view.frame = bounds
         
-//        let fromColor = color.cgColor
-//        view.backgroundColor = UIColor.blue
         let fromColor = color.cgColor
         
         for edge in edges {
-            let shadowLayer = UIView()
+            let shadowLayer = CALayer()
             
-            shadowLayer.backgroundColor = color
-            shadowLayer.layer.shadowColor = fromColor
-            shadowLayer.layer.shadowOpacity = opacity
-            shadowLayer.layer.shadowRadius = radius
+            shadowLayer.backgroundColor = fromColor
+            shadowLayer.shadowColor = fromColor
+            shadowLayer.shadowOpacity = opacity
+            shadowLayer.shadowRadius = radius
             
             
             
             switch edge {
             case .top:
                 shadowLayer.frame = CGRect(x: 0, y: -(self.frame.height), width: self.frame.width, height: self.frame.height)
-                shadowLayer.layer.shadowOffset = CGSize(width: 0, height: offset)
+                shadowLayer.shadowOffset = CGSize(width: 0, height: offset)
             case .bottom:
                 shadowLayer.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: self.frame.height)
-                shadowLayer.layer.shadowOffset = CGSize(width: 0, height: -(offset))
+                shadowLayer.shadowOffset = CGSize(width: 0, height: -(offset))
             case .left:
                 shadowLayer.frame = CGRect(x: -(self.frame.width), y: 0, width: self.frame.width, height: self.frame.height)
-                shadowLayer.layer.shadowOffset = CGSize(width: offset, height: 0)
+                shadowLayer.shadowOffset = CGSize(width: offset, height: 0)
             case .right:
                 shadowLayer.frame = CGRect(x: self.frame.width, y: 0, width: self.frame.width, height: self.frame.height)
-                shadowLayer.layer.shadowOffset = CGSize(width: -(offset), height: 0)
+                shadowLayer.shadowOffset = CGSize(width: -(offset), height: 0)
             default:
                 break
             }
             
-            view.addSubview(shadowLayer)
+            view.insertSublayer(shadowLayer, at: 1)
         }
-        self.addSubview(view)
-    }
-
-    func removeAllShadows() {
-        if let sublayers = self.layer.sublayers, !sublayers.isEmpty {
-            for sublayer in sublayers {
-                sublayer.removeFromSuperlayer()
-            }
-        }
+        self.layer.insertSublayer(view, at: 1)
     }
 }
 

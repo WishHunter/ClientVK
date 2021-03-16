@@ -157,27 +157,19 @@ extension LoginViewController {
     func button() {
         let bgColor =  UIColor(red: 242/255, green: 97/255, blue: 54/255, alpha: 1)
         let shadowColor =  UIColor(red: 215/255, green: 84/255, blue: 45/255, alpha: 1)
-        
-        loginButton.addShadow(to: [.bottom, .right], radius: 9.0, color: shadowColor)
-        loginButton.backgroundColor = bgColor
-
+        let shadowLightColor = UIColor(red: 255/255, green: 189/255, blue: 170/255, alpha: 1)
         let button = loginButton.layer
-        
-//        let view = UIView(frame: CGRect(x: 0, y: -(loginButton.frame.height), width: loginButton.frame.width, height: loginButton.frame.height))
-//
-//        view.backgroundColor = .blue
-//
-//        view.layer.shadowColor = UIColor.blue.cgColor
-//        view.layer.shadowOffset = CGSize(width: 0, height: 10)
-//        view.layer.shadowOpacity = 1
-//        view.layer.shadowRadius = CGFloat(9)
-//
-//        loginButton.addSubview(view)
-
         button.cornerRadius = 17
         button.borderWidth = 3
         button.borderColor = UIColor.white.cgColor
-//        button.masksToBounds = true
+        button.shadowColor = UIColor(red: 34/255, green: 139/255, blue: 201/255, alpha: 1).cgColor
+        button.shadowOffset = CGSize(width: 4, height: 10)
+        button.shadowRadius = 26
+        button.shadowOpacity = 1
+        
+        loginButton.addShadow(to: [.bottom, .right], offset: 10, radius: 9.0, color: shadowColor)
+        loginButton.addShadow(to: [.top, .left], offset: 10, radius: 6.0, color: shadowLightColor)
+        loginButton.backgroundColor = bgColor
     }
 }
 
