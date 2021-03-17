@@ -34,11 +34,11 @@ class News: UIView {
         super.layoutSubviews()
         text.frame = bounds
         text.frame.size.height = text.contentSize.height
-//        text.frame.size.height = 200
         
-//        NSLayoutConstraint.activate([
-//            text.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-//            text.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
-//        ])
+        NSLayoutConstraint.activate([
+            text.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            text.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            text.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
+        ])
     }
 }

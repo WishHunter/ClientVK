@@ -367,7 +367,7 @@ with your friends right now!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4T-6g-JRh">
-                                <rect key="frame" x="39" y="211" width="335" height="459"/>
+                                <rect key="frame" x="39" y="211" width="46" height="459"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalCentering" alignment="center" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="gaf-ep-Nik">
                                         <rect key="frame" x="144" y="0.0" width="46" height="482"/>
