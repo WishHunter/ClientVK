@@ -7,14 +7,18 @@
 
 import UIKit
 
-class AllCommunitiesTableViewController: UITableViewController {
-
+class AllCommunitiesTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var search: UISearchBar!
+    
     var allCommunities: [Communities] = Communities.fakeContent
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
+        
+        search.delegate = self
     }
 
     // MARK: - Table view data source
@@ -39,5 +43,17 @@ class AllCommunitiesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "unwindFormAllCommunities", sender: self)
+    }
+    
+    // MARK: - Search bar data source
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        allCommunities = Communities.fakeContent.filter({community in
+            return searchText != "" ? community.name.contains(searchText) :
+                                    true
+            
+        })
+        tableView.reloadData()
     }
 }

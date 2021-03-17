@@ -41,20 +41,20 @@ extension UIView {
             
             
             switch edge {
-            case .top:
-                shadowLayer.frame = CGRect(x: 0, y: -(self.frame.height), width: self.frame.width, height: self.frame.height)
-                shadowLayer.shadowOffset = CGSize(width: 0, height: offset)
-            case .bottom:
-                shadowLayer.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: self.frame.height)
-                shadowLayer.shadowOffset = CGSize(width: 0, height: -(offset))
-            case .left:
-                shadowLayer.frame = CGRect(x: -(self.frame.width), y: 0, width: self.frame.width, height: self.frame.height)
-                shadowLayer.shadowOffset = CGSize(width: offset, height: 0)
-            case .right:
-                shadowLayer.frame = CGRect(x: self.frame.width, y: 0, width: self.frame.width, height: self.frame.height)
-                shadowLayer.shadowOffset = CGSize(width: -(offset), height: 0)
-            default:
-                break
+                case .top:
+                    shadowLayer.frame = CGRect(x: 0, y: -(self.frame.height), width: self.frame.width, height: self.frame.height)
+                    shadowLayer.shadowOffset = CGSize(width: 0, height: offset)
+                case .bottom:
+                    shadowLayer.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: self.frame.height)
+                    shadowLayer.shadowOffset = CGSize(width: 0, height: -(offset))
+                case .left:
+                    shadowLayer.frame = CGRect(x: -(self.frame.width), y: 0, width: self.frame.width, height: self.frame.height)
+                    shadowLayer.shadowOffset = CGSize(width: offset, height: 0)
+                case .right:
+                    shadowLayer.frame = CGRect(x: self.frame.width, y: 0, width: self.frame.width, height: self.frame.height)
+                    shadowLayer.shadowOffset = CGSize(width: -(offset), height: 0)
+                default:
+                    break
             }
             
             view.insertSublayer(shadowLayer, at: 1)

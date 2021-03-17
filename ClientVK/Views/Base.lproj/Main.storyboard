@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9iQ-w0-frQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -265,7 +265,7 @@ with your friends right now!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68f-15-xUw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5134.7826086956529" y="-321.42857142857139"/>
+            <point key="canvasLocation" x="4638" y="-607"/>
         </scene>
         <!--Friend's photo-->
         <scene sceneID="01u-S0-nhT">
@@ -323,7 +323,7 @@ with your friends right now!</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRT-Qn-eDp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5964" y="-321"/>
+            <point key="canvasLocation" x="5457" y="-607"/>
         </scene>
         <!--Full Screen Photo View Controller-->
         <scene sceneID="GYm-UV-VBU">
@@ -356,7 +356,7 @@ with your friends right now!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBc-rF-XaY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6734.7826086956529" y="-321.42857142857139"/>
+            <point key="canvasLocation" x="6228" y="-607"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="S4A-Ah-jvi">
@@ -425,6 +425,7 @@ with your friends right now!</string>
                     <connections>
                         <segue destination="yzd-aP-3a8" kind="relationship" relationship="viewControllers" id="a3J-wj-aZ4"/>
                         <segue destination="aqm-48-yRJ" kind="relationship" relationship="viewControllers" id="YYN-E4-H8O"/>
+                        <segue destination="UcI-vT-VyK" kind="relationship" relationship="viewControllers" id="fYc-8f-mK2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRv-CG-f0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -448,7 +449,7 @@ with your friends right now!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRL-JW-qvN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4194" y="-321"/>
+            <point key="canvasLocation" x="3770" y="-607"/>
         </scene>
         <!--communities-->
         <scene sceneID="6Sf-ef-TGz">
@@ -469,7 +470,43 @@ with your friends right now!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbM-Ru-r1U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4319" y="531"/>
+            <point key="canvasLocation" x="3771" y="78"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="mWG-zn-gb0">
+            <objects>
+                <navigationController id="UcI-vT-VyK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="iVT-1P-fxn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Uk-w6-Ns5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WQQ-tL-Qp5" kind="relationship" relationship="rootViewController" id="dcM-fH-sjV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n3N-uV-paT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3770" y="773"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="Bqk-A4-ctS">
+            <objects>
+                <tableViewController id="WQQ-tL-Qp5" customClass="NewsTable" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ci-bP-s7R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="WQQ-tL-Qp5" id="aAx-Vp-6a4"/>
+                            <outlet property="delegate" destination="WQQ-tL-Qp5" id="HrE-He-GQK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="EsT-CB-yAX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yU4-W7-oZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4638" y="773"/>
         </scene>
         <!--All communities-->
         <scene sceneID="gss-Rl-PZH">
@@ -479,10 +516,14 @@ with your friends right now!</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="EKL-q3-JeZ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="EKL-q3-JeZ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
                         </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="0lu-oR-ETh" id="Hca-oh-Qhb"/>
@@ -491,13 +532,14 @@ with your friends right now!</string>
                     </tableView>
                     <navigationItem key="navigationItem" title="All communities" id="YdY-CZ-5Fy"/>
                     <connections>
+                        <outlet property="search" destination="EKL-q3-JeZ" id="nwe-5J-os7"/>
                         <segue destination="Jxn-jn-NkV" kind="unwind" identifier="unwindFormAllCommunities" unwindAction="unwindFormAllCommunities:" id="MY1-2B-OkZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LND-1g-H4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Jxn-jn-NkV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5964" y="530"/>
+            <point key="canvasLocation" x="5457" y="78"/>
         </scene>
         <!--Your communities-->
         <scene sceneID="c9m-LI-YNI">
@@ -522,13 +564,14 @@ with your friends right now!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCI-as-4iQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5135" y="531"/>
+            <point key="canvasLocation" x="4639" y="78"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="icon" width="83" height="83"/>
         <image name="network" catalog="system" width="128" height="121"/>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="labelColor">
