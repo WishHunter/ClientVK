@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="91" y="92"/>
+            <point key="canvasLocation" x="89.855072463768124" y="91.741071428571431"/>
         </tableViewCell>
     </objects>
 </document>

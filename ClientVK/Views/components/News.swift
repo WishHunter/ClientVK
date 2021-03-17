@@ -10,7 +10,7 @@ import UIKit
 class News: UIView {
     
     private var aboutAutor: UIView!
-    private var text: UITextView!
+    private var text: UILabel!
     private var photo: UIImageView!
 
     override init(frame: CGRect) {
@@ -24,21 +24,24 @@ class News: UIView {
     }
     
     func initView() {
-        text = UITextView()
+        text = UILabel()
         text.text = "Не всегда UICollectionViewFlowLayout соответствует требованиям к дизайну, поэтому приходится создавать свой layout. Для этого надо добавить наследника класса UICollectionViewLayout и переопределить следующие его методы:"
         
         self.addSubview(text)
+        
+//        NSLayoutConstraint.activate([
+//            text.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+//        ])
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        text.frame = bounds
-        text.frame.size.height = text.contentSize.height
+        text.frame.size.width = bounds.width
+        text.frame.size.height = 90
+//        text.frame = bounds
+//        text.lineBreakMode = .byWordWrapping
+//        text.numberOfLines = 0
         
-        NSLayoutConstraint.activate([
-            text.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            text.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            text.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0)
-        ])
+        
     }
 }
