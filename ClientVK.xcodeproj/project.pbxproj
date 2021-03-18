@@ -11,7 +11,6 @@
 		5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF692601F7780027F5A1 /* NewsCell.swift */; };
 		5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5830FF6A2601F7780027F5A1 /* NewsCell.xib */; };
 		5830FF74260204440027F5A1 /* NewsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF73260204440027F5A1 /* NewsTable.swift */; };
-		5830FF7726020DD70027F5A1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF7626020DD70027F5A1 /* News.swift */; };
 		CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */; };
 		CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */; };
 		CE09934425FE60D8000D7B4F /* FullScreenPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09934325FE60D8000D7B4F /* FullScreenPhotoViewController.swift */; };
@@ -42,7 +41,6 @@
 		5830FF692601F7780027F5A1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		5830FF6A2601F7780027F5A1 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		5830FF73260204440027F5A1 /* NewsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTable.swift; sourceTree = "<group>"; };
-		5830FF7626020DD70027F5A1 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CE09934325FE60D8000D7B4F /* FullScreenPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenPhotoViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
 				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
 				CE6A597825FEA1AA00393ECC /* PhotoView.swift */,
-				5830FF7626020DD70027F5A1 /* News.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */,
-				5830FF7726020DD70027F5A1 /* News.swift in Sources */,
 				CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */,
 				CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */,
 				CE6A597925FEA1AA00393ECC /* PhotoView.swift in Sources */,
