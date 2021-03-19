@@ -482,31 +482,41 @@ with your friends right now!</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="WQQ-tL-Qp5" kind="relationship" relationship="rootViewController" id="dcM-fH-sjV"/>
+                        <segue destination="cVv-ga-6XG" kind="relationship" relationship="rootViewController" id="ctY-6Q-dH3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n3N-uV-paT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3770" y="773"/>
         </scene>
-        <!--News-->
-        <scene sceneID="Bqk-A4-ctS">
+        <!--News Table-->
+        <scene sceneID="mpD-TA-S3D">
             <objects>
-                <tableViewController id="WQQ-tL-Qp5" customClass="NewsTable" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Ci-bP-s7R">
+                <tableViewController id="cVv-ga-6XG" customClass="NewsTable" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vnc-HM-7B3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="S6e-aZ-sdO">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S6e-aZ-sdO" id="al7-xp-WTC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="WQQ-tL-Qp5" id="aAx-Vp-6a4"/>
-                            <outlet property="delegate" destination="WQQ-tL-Qp5" id="HrE-He-GQK"/>
+                            <outlet property="dataSource" destination="cVv-ga-6XG" id="mwd-aB-gzo"/>
+                            <outlet property="delegate" destination="cVv-ga-6XG" id="dOP-pE-BVw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="News" id="EsT-CB-yAX"/>
+                    <navigationItem key="navigationItem" id="JAB-Rw-jPx"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yU4-W7-oZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXf-Io-ZZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4638" y="773"/>
+            <point key="canvasLocation" x="4717" y="778"/>
         </scene>
         <!--All communities-->
         <scene sceneID="gss-Rl-PZH">

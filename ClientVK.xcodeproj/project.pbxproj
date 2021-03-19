@@ -34,6 +34,8 @@
 		CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */; };
 		CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950525EEB9C2002B9A80 /* AvatarView.swift */; };
 		CEFD950B25EEE611002B9A80 /* LikeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950A25EEE611002B9A80 /* LikeAction.swift */; };
+		DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA37FB12604A38300C51334 /* HelloCell.swift */; };
+		DDA37FB42604A38300C51334 /* HelloCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDA37FB22604A38300C51334 /* HelloCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CEFD950525EEB9C2002B9A80 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		CEFD950A25EEE611002B9A80 /* LikeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAction.swift; sourceTree = "<group>"; };
+		DDA37FB12604A38300C51334 /* HelloCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloCell.swift; sourceTree = "<group>"; };
+		DDA37FB22604A38300C51334 /* HelloCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelloCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */,
 				5830FF692601F7780027F5A1 /* NewsCell.swift */,
 				5830FF6A2601F7780027F5A1 /* NewsCell.xib */,
+				DDA37FB12604A38300C51334 /* HelloCell.swift */,
+				DDA37FB22604A38300C51334 /* HelloCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 			files = (
 				CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */,
 				CE9BA97C25DC477600F0A60C /* Assets.xcassets in Resources */,
+				DDA37FB42604A38300C51334 /* HelloCell.xib in Resources */,
 				5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */,
 				CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */,
 				CE09934925FE7651000D7B4F /* CommunityTableViewCell.xib in Resources */,
@@ -271,6 +278,7 @@
 				5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */,
 				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
+				DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */,
 				CE874DB825EBE4CA00E4C42A /* Community.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
 				CE09934425FE60D8000D7B4F /* FullScreenPhotoViewController.swift in Sources */,
