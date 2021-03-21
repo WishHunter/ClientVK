@@ -13,7 +13,7 @@ class NewsTable: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "HelloCell", bundle: nil), forCellReuseIdentifier: "HelloCell")
-=    }
+    }
 
     // MARK: - Table view data source
 
@@ -23,7 +23,7 @@ class NewsTable: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HelloCell", for: indexPath) as! HelloCell
-=
+
         return cell
     }
 }

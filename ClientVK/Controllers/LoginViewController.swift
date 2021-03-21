@@ -182,7 +182,7 @@ extension LoginViewController {
         self.contentView.layer.opacity = 0
         
         UIView.animate(withDuration: 0.5,
-                       delay: 5,
+                       delay: 2,
                        options: .curveEaseInOut,
                        animations: {
                         self.contentView.layer.opacity = 1

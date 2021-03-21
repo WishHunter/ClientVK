@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5826C1CF25F90200004B345A /* AlphabetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5826C1CE25F90200004B345A /* AlphabetPicker.swift */; };
-		5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF692601F7780027F5A1 /* NewsCell.swift */; };
-		5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5830FF6A2601F7780027F5A1 /* NewsCell.xib */; };
 		5830FF74260204440027F5A1 /* NewsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF73260204440027F5A1 /* NewsTable.swift */; };
 		CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */; };
 		CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */; };
@@ -32,6 +30,7 @@
 		CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */; };
 		CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */; };
 		CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */; };
+		CEDC791D2607E50000D91BBA /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC791C2607E50000D91BBA /* Loader.swift */; };
 		CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950525EEB9C2002B9A80 /* AvatarView.swift */; };
 		CEFD950B25EEE611002B9A80 /* LikeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950A25EEE611002B9A80 /* LikeAction.swift */; };
 		DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA37FB12604A38300C51334 /* HelloCell.swift */; };
@@ -40,8 +39,6 @@
 
 /* Begin PBXFileReference section */
 		5826C1CE25F90200004B345A /* AlphabetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetPicker.swift; sourceTree = "<group>"; };
-		5830FF692601F7780027F5A1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
-		5830FF6A2601F7780027F5A1 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		5830FF73260204440027F5A1 /* NewsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTable.swift; sourceTree = "<group>"; };
 		CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 		CE9BA98025DC477600F0A60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CEDC791C2607E50000D91BBA /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		CEFD950525EEB9C2002B9A80 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		CEFD950A25EEE611002B9A80 /* LikeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAction.swift; sourceTree = "<group>"; };
 		DDA37FB12604A38300C51334 /* HelloCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloCell.swift; sourceTree = "<group>"; };
@@ -143,8 +141,6 @@
 				CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */,
 				CE09934625FE7651000D7B4F /* CommunityTableViewCell.swift */,
 				CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */,
-				5830FF692601F7780027F5A1 /* NewsCell.swift */,
-				5830FF6A2601F7780027F5A1 /* NewsCell.xib */,
 				DDA37FB12604A38300C51334 /* HelloCell.swift */,
 				DDA37FB22604A38300C51334 /* HelloCell.xib */,
 			);
@@ -187,6 +183,7 @@
 				CEFD950525EEB9C2002B9A80 /* AvatarView.swift */,
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
 				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
+				CEDC791C2607E50000D91BBA /* Loader.swift */,
 				CE6A597825FEA1AA00393ECC /* PhotoView.swift */,
 			);
 			path = components;
@@ -252,7 +249,6 @@
 				CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */,
 				CE9BA97C25DC477600F0A60C /* Assets.xcassets in Resources */,
 				DDA37FB42604A38300C51334 /* HelloCell.xib in Resources */,
-				5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */,
 				CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */,
 				CE09934925FE7651000D7B4F /* CommunityTableViewCell.xib in Resources */,
 			);
@@ -268,6 +264,7 @@
 				CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */,
 				CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */,
 				CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */,
+				CEDC791D2607E50000D91BBA /* Loader.swift in Sources */,
 				CE6A597925FEA1AA00393ECC /* PhotoView.swift in Sources */,
 				CE09934825FE7651000D7B4F /* CommunityTableViewCell.swift in Sources */,
 				CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */,
@@ -275,7 +272,6 @@
 				CE82C23D25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift in Sources */,
 				CE874DB525EBE49C00E4C42A /* User.swift in Sources */,
 				CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */,
-				5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */,
 				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
 				DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */,
