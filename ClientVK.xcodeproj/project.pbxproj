@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5826C1CF25F90200004B345A /* AlphabetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5826C1CE25F90200004B345A /* AlphabetPicker.swift */; };
+		5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF692601F7780027F5A1 /* NewsCell.swift */; };
+		5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5830FF6A2601F7780027F5A1 /* NewsCell.xib */; };
 		5830FF74260204440027F5A1 /* NewsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5830FF73260204440027F5A1 /* NewsTable.swift */; };
 		CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */; };
 		CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */; };
@@ -23,7 +25,6 @@
 		CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */; };
 		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
 		CE874DB825EBE4CA00E4C42A /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB725EBE4CA00E4C42A /* Community.swift */; };
-		CE8A4B8A2607C47D00FD9D78 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8A4B892607C47D00FD9D78 /* Loader.swift */; };
 		CE9BA97325DC477400F0A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97225DC477400F0A60C /* AppDelegate.swift */; };
 		CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97425DC477400F0A60C /* SceneDelegate.swift */; };
 		CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97825DC477400F0A60C /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		5826C1CE25F90200004B345A /* AlphabetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetPicker.swift; sourceTree = "<group>"; };
+		5830FF692601F7780027F5A1 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		5830FF6A2601F7780027F5A1 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		5830FF73260204440027F5A1 /* NewsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTable.swift; sourceTree = "<group>"; };
 		CE09933D25FD607F000D7B4F /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		CE09934025FD6AA8000D7B4F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE874DB725EBE4CA00E4C42A /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
-		CE8A4B892607C47D00FD9D78 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		CE9BA96F25DC477400F0A60C /* ClientVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BA97225DC477400F0A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9BA97425DC477400F0A60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,8 @@
 				CE82C23C25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift */,
 				CE09934625FE7651000D7B4F /* CommunityTableViewCell.swift */,
 				CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */,
+				5830FF692601F7780027F5A1 /* NewsCell.swift */,
+				5830FF6A2601F7780027F5A1 /* NewsCell.xib */,
 				DDA37FB12604A38300C51334 /* HelloCell.swift */,
 				DDA37FB22604A38300C51334 /* HelloCell.xib */,
 			);
@@ -184,7 +188,6 @@
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
 				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
 				CE6A597825FEA1AA00393ECC /* PhotoView.swift */,
-				CE8A4B892607C47D00FD9D78 /* Loader.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */,
 				CE9BA97C25DC477600F0A60C /* Assets.xcassets in Resources */,
 				DDA37FB42604A38300C51334 /* HelloCell.xib in Resources */,
+				5830FF6C2601F7790027F5A1 /* NewsCell.xib in Resources */,
 				CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */,
 				CE09934925FE7651000D7B4F /* CommunityTableViewCell.xib in Resources */,
 			);
@@ -264,7 +268,6 @@
 				CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */,
 				CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */,
 				CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */,
-				CE8A4B8A2607C47D00FD9D78 /* Loader.swift in Sources */,
 				CE6A597925FEA1AA00393ECC /* PhotoView.swift in Sources */,
 				CE09934825FE7651000D7B4F /* CommunityTableViewCell.swift in Sources */,
 				CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */,
@@ -272,6 +275,7 @@
 				CE82C23D25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift in Sources */,
 				CE874DB525EBE49C00E4C42A /* User.swift in Sources */,
 				CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */,
+				5830FF6B2601F7790027F5A1 /* NewsCell.swift in Sources */,
 				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
 				DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */,
