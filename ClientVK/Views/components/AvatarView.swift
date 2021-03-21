@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable class AvatarView: UIView {
+@IBDesignable class AvatarView: UIControl {
     
     //MARK: - INSPECTABLES
     
@@ -16,8 +16,8 @@ import UIKit
     @IBInspectable var shadowPosition: CGSize = CGSize(width: 5, height: 5)
     @IBInspectable var shadowRadius: CGFloat = CGFloat(7)
     
+    private var button: UIButton!
     private var imageView: UIImageView!
-    private var backView: UIView!
     
     open var imageName: String? {
         didSet {
@@ -41,10 +41,11 @@ import UIKit
     
     private func setupView() {
         imageView = UIImageView()
-        backView = UIView()
+        button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(avatarTouch), for: .touchUpInside)
         
-        self.addSubview(backView)
-        backView.addSubview(imageView)
+        self.addSubview(button)
+        button.addSubview(imageView)
 
         imageView.image = UIImage(systemName: "person.crop.circle")
         
@@ -53,17 +54,23 @@ import UIKit
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backView.frame = bounds
+        button.frame = bounds
         imageView.frame = bounds
+    }
+    
+    //MARK: - Action
+    
+    @objc private func avatarTouch() {
+        sendActions(for: .touchUpInside)
     }
 }
 
 extension AvatarView {
     private func styles() {
-        backView.backgroundColor = .blue
+        button.backgroundColor = .blue
         
         let imageLayer = imageView.layer
-        let backLayer = backView.layer
+        let backLayer = button.layer
         
         imageLayer.masksToBounds = true
         imageLayer.cornerRadius = self.bounds.width / 2

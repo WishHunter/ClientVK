@@ -78,10 +78,14 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     //MARK: - Action
     
-    @IBAction func AlphabetPickerValueChanged(_ sender: AlphabetPicker) {
+    @IBAction func alphabetPickerValueChanged(_ sender: AlphabetPicker) {
         let section = firstSymbols.firstIndex(of: sender.selectedLetter ?? firstSymbols[0]) ?? 0
         
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: section), at: .top, animated: true)
+    }
+    
+    @IBAction func avatarClicked(_ sender: AvatarView) {
+        avatarAnimation(sender)
     }
 }
 
@@ -106,5 +110,31 @@ extension FriendsTableViewController {
         })
         
         return newUsers
+    }
+}
+
+//MARK: - Animation
+
+extension FriendsTableViewController {
+    private func avatarAnimation(_ elem: AvatarView) {
+        UIView.animate(withDuration: 0.2,
+                       animations: {
+                        elem.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                       },
+                       completion: {_ in
+                        self.avatarAnimationReturn(elem)
+                       })
+    }
+    
+    private func avatarAnimationReturn(_ elem: AvatarView) {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.1,
+                       usingSpringWithDamping: 0.1,
+                       initialSpringVelocity: 0.2,
+                       options: [.curveEaseInOut],
+                       animations: {
+                        elem.transform = .identity
+                       },
+                       completion: nil)
     }
 }

@@ -15,6 +15,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var loaderView: UIView!
     
     //MARK: - Life Cicle
     
@@ -26,7 +28,7 @@ class LoginViewController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
         style()
-        
+        visibleLoader()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -173,3 +175,19 @@ extension LoginViewController {
     }
 }
 
+//MARK: - Animation
+
+extension LoginViewController {
+    private func visibleLoader() {
+        self.contentView.layer.opacity = 0
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 5,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.contentView.layer.opacity = 1
+                        self.loaderView.layer.opacity = 0
+                       }
+        )
+    }
+}
