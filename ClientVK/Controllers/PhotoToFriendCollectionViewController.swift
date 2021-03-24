@@ -19,9 +19,6 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -81,7 +78,12 @@ extension PhotoToFriendCollectionViewController {
         activeImage = UIImageView()
         nextImage = UIImageView()
         
+        addImage(imageView: previewImage!)
+        addImage(imageView: activeImage!)
+        addImage(imageView: nextImage!)
+        
         createImages()
+        
         viewFullScreen!.addSubview(previewImage!)
         viewFullScreen!.addSubview(activeImage!)
         viewFullScreen!.addSubview(nextImage!)
@@ -98,35 +100,39 @@ extension PhotoToFriendCollectionViewController {
     
     func createImages() {
         if (activeImageIndex! - 1) >= 0, let image = user?.photos[activeImageIndex! - 1][0] {
-            addImage(imageView: previewImage!, image: image, position: .left)
+            posImage(imageView: previewImage!, image: image, position: .left)
         }
         if let image = user?.photos[activeImageIndex!][0] {
-            addImage(imageView: activeImage!, image: image, position: .center)
+            posImage(imageView: activeImage!, image: image, position: .center)
         }
         if (activeImageIndex! + 1) < (user?.photos.count)!, let image = user?.photos[activeImageIndex! + 1][0] {
-            addImage(imageView: nextImage!, image: image, position: .right)
+            posImage(imageView: nextImage!, image: image, position: .right)
         }
     }
     
-    func addImage(imageView: UIImageView, image: String, position: PositionImage) {
-               
-        imageView.image = UIImage(named: image)
+    func addImage(imageView: UIImageView) {
         imageView.frame = view.bounds
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
-        
+    }
+    
+    func posImage(imageView: UIImageView, image: String, position: PositionImage) {
+        imageView.image = UIImage(named: image)
         switch position {
             case .left:
                 imageView.frame.origin.x = -self.view.bounds.width
+                imageView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             case .center:
                 imageView.frame.origin.x = (self.view.bounds.width / 2) - (imageView.frame.width / 2)
             case .right:
                 imageView.frame.origin.x = self.view.bounds.width
+                imageView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             }
     }
     
     @objc func onSwipe(_ sender: UISwipeGestureRecognizer) {
-                
+        self.createImages()
+        
         let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeInOut) {
             switch sender.direction {
                 case .left:
@@ -137,12 +143,28 @@ extension PhotoToFriendCollectionViewController {
                 case .right:
                     if (self.activeImageIndex! - 1) >= 0 {
                         self.activeImage?.frame.origin.x = self.view.bounds.width
-                        self.previewImage?.frame.origin.x = (self.view.bounds.width / 2) - ((self.nextImage?.frame.width)! / 2)
+                        self.previewImage?.frame.origin.x = (self.view.bounds.width / 2) - ((self.previewImage?.frame.width)! / 2)
                     }
                 default:
                     break
                 }
         }
+        
+        UIView.animate(withDuration: 0.25,
+                       delay: 0.2,
+                       options: .curveEaseInOut,
+                       animations: {
+                        switch sender.direction {
+                            case .left:
+                                self.nextImage?.transform = .identity
+                            case .right:
+                                self.previewImage?.transform = .identity
+                            default:
+                                break
+                        }
+                       },
+                       completion: nil)
+        
         
         animator.addCompletion{position in
             if position == .end {
@@ -158,7 +180,6 @@ extension PhotoToFriendCollectionViewController {
                     default:
                         break
                     }
-                self.createImages()
             }
         }
         
