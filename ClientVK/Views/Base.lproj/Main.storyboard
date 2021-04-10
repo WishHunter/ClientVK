@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yzd-aP-3a8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -423,7 +423,7 @@ with your friends right now!</string>
         <!--Friends-->
         <scene sceneID="T16-JQ-NFn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yzd-aP-3a8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yzd-aP-3a8" customClass="AnimatedNavigationController" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2" catalog="system" id="bvP-ot-k1I"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZeN-Yf-6na">
@@ -442,7 +442,7 @@ with your friends right now!</string>
         <!--communities-->
         <scene sceneID="6Sf-ef-TGz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aqm-48-yRJ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aqm-48-yRJ" customClass="AnimatedNavigationController" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="communities" image="person.3" catalog="system" id="pqy-HV-0wn">
                         <color key="badgeColor" systemColor="systemIndigoColor"/>
                     </tabBarItem>
@@ -463,7 +463,7 @@ with your friends right now!</string>
         <!--News-->
         <scene sceneID="mWG-zn-gb0">
             <objects>
-                <navigationController id="UcI-vT-VyK" sceneMemberID="viewController">
+                <navigationController id="UcI-vT-VyK" customClass="AnimatedNavigationController" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="iVT-1P-fxn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Uk-w6-Ns5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -504,7 +504,7 @@ with your friends right now!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXf-Io-ZZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4717" y="778"/>
+            <point key="canvasLocation" x="4638" y="773"/>
         </scene>
         <!--All communities-->
         <scene sceneID="gss-Rl-PZH">
