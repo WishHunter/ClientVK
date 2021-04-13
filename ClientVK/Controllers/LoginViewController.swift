@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 @IBDesignable
 class LoginViewController: UIViewController {
@@ -17,6 +18,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var loaderView: UIView!
+    @IBOutlet weak var webView: WKWebView! {
+        didSet {
+            webView.navigationDelegate = self
+        }
+    }
     
     //MARK: - Life Cicle
     
@@ -29,6 +35,7 @@ class LoginViewController: UIViewController {
         
         style()
         visibleLoader()
+        loadWebView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,22 +83,71 @@ class LoginViewController: UIViewController {
     
     //MARK: - Segue
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard identifier == "starterTabBarController" else {
-            let login = loginInput.text!
-            let password = passwordInput.text!
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        guard identifier == "starterTabBarController" else {
+//            let login = loginInput.text!
+//            let password = passwordInput.text!
+//
+//            if (login != "admin" || password != "admin") {
+//                customAllert("Not correct login or password")
+//                return false
+//            }
+//
+//            Session.instance.token = "123"
+//            Session.instance.userId = 123
+//
+//            return true
+//        }
+//        return true
+//    }
+}
+
+//MARK: - WebViewLoad
+
+extension LoginViewController: WKNavigationDelegate {
+    func loadWebView() {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "oauth.vk.com"
+        urlComponents.path = "/authorize"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "7823707"),
+            URLQueryItem(name: "display", value: "mobile"),
+            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
+            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "response_type", value: "token")
+        ]
+        
+        let request = URLRequest(url: urlComponents.url!)
+        
+        self.webView.load(request)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        guard let url = navigationResponse.response.url,
+              url.path == "/blank.html",
+              let fragment = url.fragment else {
             
-            if (login != "admin" || password != "admin") {
-                customAllert("Not correct login or password")
-                return false
-            }
-            
-            Session.instance.token = "123"
-            Session.instance.userId = 123
-            
-            return true
+            decisionHandler(.allow)
+            return
         }
-        return true
+        
+        let params = fragment
+                    .components(separatedBy: "&")
+                    .map { $0.components(separatedBy: "=") }
+                    .reduce([String: String]()) { result, param in
+                        var dict = result
+                        let key = param[0]
+                        let value = param[1]
+                        dict[key] = value
+                        return dict
+                }
+        
+        Session.instance.token = params["access_token"]
+        Session.instance.userId = Int(params["user_id"]!)
+
+        decisionHandler(.cancel)
+        self.performSegue(withIdentifier: "toTabBarController", sender: nil)
     }
 }
 
