@@ -12,6 +12,7 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     @IBOutlet weak var search: UISearchBar!
     
     var allCommunities: [Communities] = Communities.fakeContent
+    var vkServices = VKServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,8 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
         
         search.delegate = self
+        
+        vkServices.searchCommunities()
     }
 
     // MARK: - Table view data source
@@ -54,6 +57,8 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
                                     true
             
         })
+        let text = searchText != "" ? searchText : " "
+        vkServices.searchCommunities(stroke: text)
         tableView.reloadData()
     }
 }

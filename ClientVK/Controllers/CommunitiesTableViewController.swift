@@ -10,11 +10,14 @@ import UIKit
 class CommunitiesTableViewController: UITableViewController {
 
     var myCommunities: [Communities] = []
+    var vkServices = VKServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
+        
+        vkServices.loadCommunities()
     }
 
     // MARK: - Table view data source
