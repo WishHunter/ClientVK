@@ -22,7 +22,10 @@ import UIKit
     open var imageName: String? {
         didSet {
             if let image = imageName {
-                imageView.image = UIImage(named: image)
+//                imageView.image = UIImage(named: image)
+                let url = URL(string: image)
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                imageView.image = UIImage(data: data!)
             } else {
                 imageView.image = UIImage(systemName: "person.crop.circle")
             }

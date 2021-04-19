@@ -17,7 +17,7 @@ class Slider: UIView {
     var activeImage: UIImageView?
     var nextImage: UIImageView?
     var activeImageIndex: Int?
-    var user: User?
+    var user: User2?
     
     func createView() {
         previewImage = UIImageView()

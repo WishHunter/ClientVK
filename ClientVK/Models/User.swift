@@ -7,7 +7,27 @@
 
 import Foundation
 
-struct User {
+struct Friends: Codable {
+    let response: FriendsResponce
+}
+
+struct FriendsResponce: Codable {
+    let count: Int
+    let items: [User]
+}
+
+struct User: Codable {
+    let first_name: String
+    let id: Int
+    let last_name: String
+    let photo_100: String
+    let track_code: String
+    var name: String {
+        return first_name + last_name
+    }
+}
+
+struct User2 {
     var name: String
     var photo: String?
     var photos: [[String]]
@@ -27,11 +47,11 @@ struct User {
         ["9", "125"],
     ]
     
-    static var fakeContent: [User] {
-        var fakeArray: [User] = []
+    static var fakeContent: [User2] {
+        var fakeArray: [User2] = []
         
         for _ in 0...15 {
-            fakeArray.append(User(
+            fakeArray.append(User2(
                                 name: fakeNames[Int.random(in: 0..<fakeNames.count)],
                                 photo: String(Int.random(in: 1...15)),
                                 photos: fakePhotos))

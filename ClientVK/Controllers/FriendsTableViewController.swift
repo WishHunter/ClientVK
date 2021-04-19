@@ -13,18 +13,20 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var alphabetView: AlphabetPicker!
     
     var vkServices = VKServices()
-    
-    var friends: [User] = User.fakeContent
-    var firstSymbols: [Character]!
-    var sortFriends: [Character: [User]]!
+    var users = [User]()
+    var firstSymbols: [Character] = []
+    var sortFriends: [Character: [User]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        alphabetView.letters = createFirstSimbols()
-        firstSymbols = createFirstSimbols()
-        sortFriends = sortUsers()
         
-        vkServices.loadFriends()
+        vkServices.loadFriends() {[weak self] users in
+            self?.users = users
+            self?.alphabetView.letters = (self?.createFirstSimbols())!
+            self?.firstSymbols = (self?.createFirstSimbols())!
+            self?.sortFriends = (self?.sortUsers())!
+            self?.tableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,15 +36,16 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sortFriends.count
+        return sortFriends.count > 0 ? sortFriends.count : 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortFriends[firstSymbols[section]]?.count ?? 0
+        return firstSymbols.count > 0 ? sortFriends[firstSymbols[section]]!.count : 0
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String(firstSymbols[section])
+        return firstSymbols.count > 0 ? String(firstSymbols[section]) : ""
     }
     
     
@@ -53,7 +56,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         
         cell.label.text = friend?.name
         
-        if let photo = friend?.photo {
+        if let photo = friend?.photo_100 {
             cell.photo.imageName = photo
         }
                 
@@ -72,7 +75,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
                 let name = friend?.name
 
                 
-                photoToFriendController.user = friend
+//                photoToFriendController.user = friend
                 
                 photoToFriendController.navigationItem.title = "\(String(name ?? "friend"))'s photos"
             }
@@ -97,8 +100,8 @@ extension FriendsTableViewController {
     
     private func createFirstSimbols() -> [Character] {
         var setSimbols: Set<Character> = []
-        friends.forEach({ friend in
-            setSimbols.insert(friend.name.first ?? " ")
+        users.forEach({ user in
+            setSimbols.insert(user.name.first ?? " ")
         })
         
         return Array(setSimbols).sorted(by: {simbol, nextSimbol in return simbol < nextSimbol})
@@ -108,8 +111,8 @@ extension FriendsTableViewController {
         var newUsers: [Character: [User]] = [:]
         
         firstSymbols.forEach({ simbol in
-            newUsers[simbol] = friends.filter({friend in
-                return friend.name.first == simbol
+            newUsers[simbol] = users.filter({user in
+                return user.name.first == simbol
             })
         })
         

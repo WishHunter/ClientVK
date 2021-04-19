@@ -10,7 +10,7 @@ import UIKit
 class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var user: User?
+    var user: User2?
     var viewFullScreen: Slider?
     var vkServices = VKServices()
     

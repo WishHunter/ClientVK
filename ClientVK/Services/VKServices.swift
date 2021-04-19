@@ -14,7 +14,7 @@ class VKServices {
     let clientId = "7823707"
     let version = "5.21"
     
-    func loadFriends() {
+    func loadFriends(completion: @escaping ([User]) -> Void) {
         let path = "friends.get"
         
         let parameters: Parameters = [
@@ -26,10 +26,18 @@ class VKServices {
         
         let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseJSON {
+        AF.request(url, method: .get, parameters: parameters).responseData {
             response in
                 print(response.value!)
+                guard let data = response.value else { return }
+                do {
+                    let users = try JSONDecoder().decode(Friends.self, from: data)
+                    completion(users.response.items)
+                } catch {
+                    print(error)
+                }
             }
+        
     }
     
     func loadCommunities() {
