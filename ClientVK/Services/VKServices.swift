@@ -28,7 +28,6 @@ class VKServices {
         
         AF.request(url, method: .get, parameters: parameters).responseData {
             response in
-                print(response.value!)
                 guard let data = response.value else { return }
                 do {
                     let users = try JSONDecoder().decode(Friends.self, from: data)
@@ -40,7 +39,7 @@ class VKServices {
         
     }
     
-    func loadCommunities() {
+    func loadCommunities(completion: @escaping ([Group]) -> Void) {
         let path = "groups.get"
         
         let parameters: Parameters = [
@@ -52,13 +51,19 @@ class VKServices {
         
         let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseJSON {
+        AF.request(url, method: .get, parameters: parameters).responseData {
             response in
-            print(response.value!)
+            guard let data = response.value else { return }
+            do {
+                let groups = try JSONDecoder().decode(Groups.self, from: data)
+                completion(groups.response.items)
+            } catch {
+                print(error)
+            }
         }
     }
     
-    func searchCommunities(stroke: String = " ") {
+    func searchCommunities(stroke: String = " ", completion: @escaping ([Group]) -> Void) {
         let path = "groups.search"
         
         let parameters: Parameters = [
@@ -69,26 +74,42 @@ class VKServices {
         
         let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseJSON {
+        AF.request(url, method: .get, parameters: parameters).responseData {
             response in
-            print(response.value!)
+            guard let data = response.value else { return }
+            do {
+                let groups = try JSONDecoder().decode(Groups.self, from: data)
+                completion(groups.response.items)
+            } catch {
+                print(error)
+            }
         }
     }
     
-    func loadPhotos(friendId: String = String(Session.instance.userId!)) {
+    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping ([UserPhoto]) -> Void) {
         let path = "photos.getAll"
+        
+        print(friendId)
         
         let parameters: Parameters = [
             "owner_id": friendId,
             "access_token": Session.instance.token ?? "0",
             "v": version,
-            "no_service_albums": 1
+            "no_service_albums": 0,
+            "count": 50,
+            "extended": 1
         ]
          let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseJSON {
+        AF.request(url, method: .get, parameters: parameters).responseData {
             response in
-            print(response.value!)
+            guard let data = response.value else { return }
+            do {
+                let photos = try JSONDecoder().decode(UserPhotos.self, from: data)
+                completion(photos.response.items)
+            } catch {
+                print(error)
+            }
         }
     }
 }

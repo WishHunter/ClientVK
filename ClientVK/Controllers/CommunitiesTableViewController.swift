@@ -9,7 +9,7 @@ import UIKit
 
 class CommunitiesTableViewController: UITableViewController {
 
-    var myCommunities: [Communities] = []
+    var myGroups = [Group]()
     var vkServices = VKServices()
     
     override func viewDidLoad() {
@@ -17,7 +17,10 @@ class CommunitiesTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
         
-        vkServices.loadCommunities()
+        vkServices.loadCommunities() {[weak self] groups in
+            self?.myGroups = groups
+            self?.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -27,15 +30,15 @@ class CommunitiesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myCommunities.count
+        return myGroups.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
-        cell.label.text = myCommunities[indexPath.item].name
-        cell.photo.imageName = myCommunities[indexPath.item].photo
+        cell.label.text = myGroups[indexPath.item].name
+        cell.photo.imageName = myGroups[indexPath.item].photo_100
         
         return cell
     }
@@ -45,37 +48,19 @@ class CommunitiesTableViewController: UITableViewController {
     @IBAction func unwindFormAllCommunities(_ segue: UIStoryboardSegue) {
         
         guard let allCommunitiesContainer = segue.source as? AllCommunitiesTableViewController,
-              let indexCell = allCommunitiesContainer.tableView.indexPathForSelectedRow
+              let _ = allCommunitiesContainer.tableView.indexPathForSelectedRow
         else { return }
         
-        let communite = allCommunitiesContainer.allCommunities[indexCell.item]
-        myCommunities.append(communite)
-        tableView.reloadData()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "myComToAlCom" {
-            let allCommunitiesContainer = segue.destination as! AllCommunitiesTableViewController
-            let allCommunies = allCommunitiesContainer.allCommunities.filter({community -> Bool in
-                var communiteRepeat = false
-                
-                for myCommunity in self.myCommunities {
-                    if myCommunity.name == community.name {
-                        communiteRepeat = true
-                    }
-                }
-                return !communiteRepeat
-            })
-          
-            allCommunitiesContainer.allCommunities = allCommunies
+        vkServices.loadCommunities() {[weak self] groups in
+            self?.myGroups = groups
+            self?.tableView.reloadData()
         }
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            self.myCommunities.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
+//        if editingStyle == .delete {
+//            self.myCommunities.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
     }
 }

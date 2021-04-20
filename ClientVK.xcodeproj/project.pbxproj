@@ -21,9 +21,10 @@
 		CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */; };
 		CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */; };
 		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
-		CE874DB825EBE4CA00E4C42A /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB725EBE4CA00E4C42A /* Community.swift */; };
 		CE94B14A2621DF6F0052F931 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94B1492621DF6F0052F931 /* Session.swift */; };
 		CE9733CD2626235400590226 /* VKServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CC2626235400590226 /* VKServices.swift */; };
+		CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CF262F58F600590226 /* UserPhoto.swift */; };
+		CE9733D4262F7D4200590226 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733D3262F7D4200590226 /* Group.swift */; };
 		CE9BA97325DC477400F0A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97225DC477400F0A60C /* AppDelegate.swift */; };
 		CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA97425DC477400F0A60C /* SceneDelegate.swift */; };
 		CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97825DC477400F0A60C /* Main.storyboard */; };
@@ -58,9 +59,10 @@
 		CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		CE874DB725EBE4CA00E4C42A /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		CE94B1492621DF6F0052F931 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE9733CC2626235400590226 /* VKServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServices.swift; sourceTree = "<group>"; };
+		CE9733CF262F58F600590226 /* UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoto.swift; sourceTree = "<group>"; };
+		CE9733D3262F7D4200590226 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		CE9BA96F25DC477400F0A60C /* ClientVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9BA97225DC477400F0A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE9BA97425DC477400F0A60C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,8 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				CE874DB425EBE49C00E4C42A /* User.swift */,
-				CE874DB725EBE4CA00E4C42A /* Community.swift */,
 				CE94B1492621DF6F0052F931 /* Session.swift */,
+				CE9733CF262F58F600590226 /* UserPhoto.swift */,
+				CE9733D3262F7D4200590226 /* Group.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,12 +367,13 @@
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
 				CEDC792B2610FD3200D91BBA /* CustomInteractiveTransition.swift in Sources */,
 				CEDC7922260BCF5400D91BBA /* Slider.swift in Sources */,
+				CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */,
 				DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */,
-				CE874DB825EBE4CA00E4C42A /* Community.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
 				CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */,
 				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
 				CE94B14A2621DF6F0052F931 /* Session.swift in Sources */,
+				CE9733D4262F7D4200590226 /* Group.swift in Sources */,
 				CEFD950625EEB9C2002B9A80 /* AvatarView.swift in Sources */,
 				5826C1CF25F90200004B345A /* AlphabetPicker.swift in Sources */,
 				CE9733CD2626235400590226 /* VKServices.swift in Sources */,

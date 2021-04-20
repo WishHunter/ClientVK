@@ -76,6 +76,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
 
                 
 //                photoToFriendController.user = friend
+                photoToFriendController.userId = friend?.id
                 
                 photoToFriendController.navigationItem.title = "\(String(name ?? "friend"))'s photos"
             }
