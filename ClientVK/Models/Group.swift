@@ -19,13 +19,13 @@ struct GroupsResponse: Codable {
 struct Group: Codable {
     let id: Int
     let name: String
-    let screen_name: String
-    let is_closed: Int
+    let screenName: String
+    let isClosed: Int
     let type: String
-    let is_admin: Int
-    let is_member: Int
-    let is_advertiser: Int
-    let photo_50: URL?
-    let photo_100: URL?
-    let photo_200: URL?
+    let isAdmin: Int
+    let isMember: Int
+    let isAdvertiser: Int
+    let photo50: URL?
+    let photo100: URL?
+    let photo200: URL?
 }

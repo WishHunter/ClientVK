@@ -38,7 +38,7 @@ class CommunitiesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
         cell.label.text = myGroups[indexPath.item].name
-        cell.photo.imageName = myGroups[indexPath.item].photo_100
+        cell.photo.imageName = myGroups[indexPath.item].photo100
         
         return cell
     }

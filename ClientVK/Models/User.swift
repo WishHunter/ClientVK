@@ -17,12 +17,12 @@ struct FriendsResponce: Codable {
 }
 
 struct User: Codable {
-    let first_name: String
+    let firstName: String
     let id: Int
-    let last_name: String
-    let photo_100: URL
-    let track_code: String
+    let lastName: String
+    let photo100: URL
+    let trackCode: String
     var name: String {
-        return first_name + " " + last_name
+        return firstName + " " + lastName
     }
 }

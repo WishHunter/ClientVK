@@ -42,7 +42,7 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
         cell.label.text = allGroups[indexPath.item].name
-        cell.photo.imageName = allGroups[indexPath.item].photo_100
+        cell.photo.imageName = allGroups[indexPath.item].photo100
         
         return cell
     }

@@ -13,7 +13,7 @@ class VKServices {
     let baseURL = "https://api.vk.com/method/"
     let clientId = "7823707"
     let version = "5.21"
-    
+        
     func loadFriends(completion: @escaping ([User]) -> Void) {
         let path = "friends.get"
         
@@ -30,7 +30,9 @@ class VKServices {
             response in
                 guard let data = response.value else { return }
                 do {
-                    let users = try JSONDecoder().decode(Friends.self, from: data)
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let users = try decoder.decode(Friends.self, from: data)
                     completion(users.response.items)
                 } catch {
                     print(error)
@@ -55,7 +57,9 @@ class VKServices {
             response in
             guard let data = response.value else { return }
             do {
-                let groups = try JSONDecoder().decode(Groups.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let groups = try decoder.decode(Groups.self, from: data)
                 completion(groups.response.items)
             } catch {
                 print(error)
@@ -78,7 +82,9 @@ class VKServices {
             response in
             guard let data = response.value else { return }
             do {
-                let groups = try JSONDecoder().decode(Groups.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let groups = try decoder.decode(Groups.self, from: data)
                 completion(groups.response.items)
             } catch {
                 print(error)
@@ -105,7 +111,9 @@ class VKServices {
             response in
             guard let data = response.value else { return }
             do {
-                let photos = try JSONDecoder().decode(UserPhotos.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let photos = try decoder.decode(UserPhotos.self, from: data)
                 completion(photos.response.items)
             } catch {
                 print(error)

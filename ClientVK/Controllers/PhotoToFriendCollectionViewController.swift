@@ -12,7 +12,6 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     var userId: Int?
     var photos = [UserPhoto]()
-//    var viewFullScreen: Slider?
     var vkServices = VKServices()
     
     
@@ -47,10 +46,10 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoToFriendCollectionViewCell
 
-        if let image = photos[indexPath.item].photo_604 {
+        if let image = photos[indexPath.item].photo604 {
             let data = try? Data(contentsOf: image)
             cell.photo.image = UIImage(data: data!)
-        } else if let image = photos[indexPath.item].photo_130 {
+        } else if let image = photos[indexPath.item].photo130 {
             let data = try? Data(contentsOf: image)
             cell.photo.image = UIImage(data: data!)
         } else {
@@ -58,7 +57,7 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
         }
         
         cell.likes.numberOfLikes = photos[indexPath.item].likes.count
-        cell.likes.isLiked = (photos[indexPath.item].likes.user_likes != 0)
+        cell.likes.isLiked = (photos[indexPath.item].likes.userLikes != 0)
         return cell
     }
 }

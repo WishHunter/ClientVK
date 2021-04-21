@@ -17,18 +17,18 @@ struct UserPhotosResponse: Codable {
 }
 
 struct UserPhoto: Codable {
-    let album_id: Int
+    let albumId: Int
     let date: Date
-    let has_tags: Bool
+    let hasTags: Bool
     let height: Int?
     let id: Int
-    let owner_id: Int
-    let photo_130: URL?
-    let photo_604: URL?
-    let photo_75: URL?
-    let photo_807: URL?
-    let photo_1280: URL?
-    let photo_2560: URL?
+    let ownerId: Int
+    let photo130: URL?
+    let photo604: URL?
+    let photo75: URL?
+    let photo807: URL?
+    let photo1280: URL?
+    let photo2560: URL?
     let text: String
     let width: Int?
     let likes: PhotoLikes
@@ -36,7 +36,7 @@ struct UserPhoto: Codable {
 }
 
 struct PhotoLikes: Codable {
-    let user_likes: Int
+    let userLikes: Int
     let count: Int
 }
 

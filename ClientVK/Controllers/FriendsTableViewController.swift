@@ -56,7 +56,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         
         cell.label.text = friend?.name
         
-        if let photo = friend?.photo_100 {
+        if let photo = friend?.photo100 {
             cell.photo.imageName = photo
         }
                 
@@ -74,8 +74,6 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
                 let friend = sortFriends[firstSymbols[indexPath.section]]?[indexPath.item]
                 let name = friend?.name
 
-                
-//                photoToFriendController.user = friend
                 photoToFriendController.userId = friend?.id
                 
                 photoToFriendController.navigationItem.title = "\(String(name ?? "friend"))'s photos"

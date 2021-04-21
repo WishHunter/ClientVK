@@ -33,7 +33,6 @@
 		CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */; };
 		CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */; };
 		CEDC791D2607E50000D91BBA /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC791C2607E50000D91BBA /* Loader.swift */; };
-		CEDC7922260BCF5400D91BBA /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC7921260BCF5400D91BBA /* Slider.swift */; };
 		CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */; };
 		CEDC79282610D8B900D91BBA /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79272610D8B900D91BBA /* CustomAnimator.swift */; };
 		CEDC792B2610FD3200D91BBA /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */; };
@@ -73,7 +72,6 @@
 		CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CEDC791C2607E50000D91BBA /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		CEDC7921260BCF5400D91BBA /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedNavigationController.swift; sourceTree = "<group>"; };
 		CEDC79272610D8B900D91BBA /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 		CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
@@ -203,10 +201,10 @@
 		CE9BA97125DC477400F0A60C /* ClientVK */ = {
 			isa = PBXGroup;
 			children = (
+				CE71324725E9807000CE98BD /* App */,
 				CE9733C726261E1700590226 /* Services */,
 				CE71324925E980A400CE98BD /* Views */,
 				CE71324825E9808900CE98BD /* Models */,
-				CE71324725E9807000CE98BD /* App */,
 				CE71324625E9805D00CE98BD /* Helpers */,
 				CE71324425E9802400CE98BD /* Controllers */,
 				CE9BA97B25DC477600F0A60C /* Assets.xcassets */,
@@ -222,7 +220,6 @@
 				CEFD950A25EEE611002B9A80 /* LikeAction.swift */,
 				5826C1CE25F90200004B345A /* AlphabetPicker.swift */,
 				CEDC791C2607E50000D91BBA /* Loader.swift */,
-				CEDC7921260BCF5400D91BBA /* Slider.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
 				CEDC792B2610FD3200D91BBA /* CustomInteractiveTransition.swift in Sources */,
-				CEDC7922260BCF5400D91BBA /* Slider.swift in Sources */,
 				CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */,
 				DDA37FB32604A38300C51334 /* HelloCell.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
