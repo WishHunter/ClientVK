@@ -9,5 +9,5 @@ import UIKit
 
 class PhotoToFriendCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var likes: LikeAction!
+    @IBOutlet weak var likes: LikeActionControl!
 }

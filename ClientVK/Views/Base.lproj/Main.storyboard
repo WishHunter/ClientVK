@@ -148,7 +148,7 @@ with your friends right now!</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="VCc-2I-z1D"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="YLX-UW-t5p"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-Tp-CFD" userLabel="LoaderView" customClass="Loader" customModule="ClientVK" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-Tp-CFD" userLabel="LoaderView" customClass="LoaderView" customModule="ClientVK" customModuleProvider="target">
                                 <rect key="frame" x="122" y="435.5" width="170" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -208,7 +208,7 @@ with your friends right now!</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-wh-q8J" customClass="AvatarView" customModule="ClientVK">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-wh-q8J" customClass="AvatarViewControl" customModule="ClientVK" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="10" width="60" height="60"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -251,7 +251,7 @@ with your friends right now!</string>
                                     <outlet property="delegate" destination="YM0-j4-pgj" id="mzf-p8-sI2"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qlm-It-BQh" customClass="AlphabetPicker" customModule="ClientVK" customModuleProvider="target">
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Qlm-It-BQh" customClass="AlphabetPickerControl" customModule="ClientVK" customModuleProvider="target">
                                 <rect key="frame" x="364" y="0.0" width="50" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -315,7 +315,7 @@ with your friends right now!</string>
                                                     <rect key="frame" x="0.0" y="-25" width="128" height="153"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot3-RK-1zs" customClass="LikeAction" customModule="ClientVK">
+                                                <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot3-RK-1zs" customClass="LikeActionControl" customModule="ClientVK" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="93" width="128" height="25"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -490,10 +490,10 @@ with your friends right now!</string>
             </objects>
             <point key="canvasLocation" x="3770" y="773"/>
         </scene>
-        <!--News Table-->
+        <!--News Table View Controller-->
         <scene sceneID="mpD-TA-S3D">
             <objects>
-                <tableViewController id="cVv-ga-6XG" customClass="NewsTable" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cVv-ga-6XG" customClass="NewsTableViewController" customModule="ClientVK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vnc-HM-7B3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

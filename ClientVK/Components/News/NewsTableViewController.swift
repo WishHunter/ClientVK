@@ -1,5 +1,5 @@
 //
-//  NewsTable.swift
+//  NewsTableViewController.swift
 //  ClientVK
 //
 //  Created by d.molkov on 17.03.2021.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class NewsTable: UITableViewController {
+class NewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "HelloCell", bundle: nil), forCellReuseIdentifier: "HelloCell")
+        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
     }
 
     // MARK: - Table view data source
@@ -22,7 +22,7 @@ class NewsTable: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HelloCell", for: indexPath) as! HelloCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
 
         return cell
     }
