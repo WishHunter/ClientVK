@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 
 class VKServices {
@@ -33,12 +34,24 @@ class VKServices {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let users = try decoder.decode(Friends.self, from: data)
+                    
+                    self.saveFriendsData(users.response.items)
                     completion(users.response.items)
                 } catch {
                     print(error)
                 }
             }
-        
+    }
+    
+    func saveFriendsData(_ friends: [User]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(friends)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
     }
     
     func loadCommunities(completion: @escaping ([Group]) -> Void) {
@@ -60,10 +73,22 @@ class VKServices {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let groups = try decoder.decode(Groups.self, from: data)
+                self.saveCommunitiesData(groups.response.items)
                 completion(groups.response.items)
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    func saveCommunitiesData(_ groups: [Group]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(groups)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
     
@@ -114,10 +139,22 @@ class VKServices {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let photos = try decoder.decode(UserPhotos.self, from: data)
+                self.savePhotosData(photos.response.items)
                 completion(photos.response.items)
             } catch {
                 print(error)
             }
+        }
+    }
+    
+    func savePhotosData(_ photos: [UserPhoto]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(photos)
+            try realm.commitWrite()
+        } catch {
+            print(error)
         }
     }
 }

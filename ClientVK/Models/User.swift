@@ -6,23 +6,24 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Friends: Codable {
-    let response: FriendsResponce
+class Friends: Decodable {
+    var response: FriendsResponce
 }
 
-struct FriendsResponce: Codable {
-    let count: Int
-    let items: [User]
+class FriendsResponce: Decodable {
+    var count: Int
+    var items: [User]
 }
 
-struct User: Codable {
-    let firstName: String
-    let id: Int
-    let lastName: String
-    let photo100: URL
-    let trackCode: String
-    var name: String {
+class User: Object, Decodable {
+    @objc dynamic var firstName: String
+    @objc dynamic var id: Int
+    @objc dynamic var lastName: String
+    @objc dynamic var photo100: String
+    @objc dynamic var trackCode: String
+    @objc dynamic var name: String {
         return firstName + " " + lastName
     }
 }

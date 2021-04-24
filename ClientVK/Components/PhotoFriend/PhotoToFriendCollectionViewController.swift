@@ -47,17 +47,19 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoToFriendCollectionViewCell
 
         if let image = photos[indexPath.item].photo604 {
-            let data = try? Data(contentsOf: image)
+            let imageURL = URL(string: image)!
+            let data = try? Data(contentsOf: imageURL)
             cell.photo.image = UIImage(data: data!)
         } else if let image = photos[indexPath.item].photo130 {
-            let data = try? Data(contentsOf: image)
+            let imageURL = URL(string: image)!
+            let data = try? Data(contentsOf: imageURL)
             cell.photo.image = UIImage(data: data!)
         } else {
             cell.photo.image = UIImage(systemName: "person.crop.circle")
         }
         
-        cell.likes.numberOfLikes = photos[indexPath.item].likes.count
-        cell.likes.isLiked = (photos[indexPath.item].likes.userLikes != 0)
+        cell.likes.numberOfLikes = photos[indexPath.item].likes!.count
+        cell.likes.isLiked = (photos[indexPath.item].likes!.userLikes != 0)
         return cell
     }
 }

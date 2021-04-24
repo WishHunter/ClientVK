@@ -6,26 +6,27 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Groups: Codable {
+struct Groups: Decodable {
     let response: GroupsResponse
 }
 
-struct GroupsResponse: Codable {
+struct GroupsResponse: Decodable {
     let count: Int
     let items: [Group]
 }
 
-struct Group: Codable {
-    let id: Int
-    let name: String
-    let screenName: String
-    let isClosed: Int
-    let type: String
-    let isAdmin: Int
-    let isMember: Int
-    let isAdvertiser: Int
-    let photo50: URL?
-    let photo100: URL?
-    let photo200: URL?
+class Group: Object, Decodable {
+    @objc dynamic var id: Int
+    @objc dynamic var name: String
+    @objc dynamic var screenName: String
+    @objc dynamic var isClosed: Int
+    @objc dynamic var type: String
+    @objc dynamic var isAdmin: Int
+    @objc dynamic var isMember: Int
+    @objc dynamic var isAdvertiser: Int
+    @objc dynamic var photo50: String?
+    @objc dynamic var photo100: String?
+    @objc dynamic var photo200: String?
 }

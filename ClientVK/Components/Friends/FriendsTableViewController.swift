@@ -57,7 +57,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.label.text = friend?.name
         
         if let photo = friend?.photo100 {
-            cell.photo.imageName = photo
+            let photoURL = URL(string: photo)
+            cell.photo.imageName = photoURL
         }
                 
         return cell
