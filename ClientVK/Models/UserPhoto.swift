@@ -21,7 +21,6 @@ class UserPhoto: Object, Decodable {
     @objc dynamic var albumId: Int = 0
     @objc dynamic var date: Date = Date()
     @objc dynamic var hasTags: Bool = false
-    @objc dynamic var height: String?
     @objc dynamic var id: Int = 0
     @objc dynamic var ownerId: Int = 0
     @objc dynamic var photo130: String?
@@ -31,9 +30,11 @@ class UserPhoto: Object, Decodable {
     @objc dynamic var photo1280: String?
     @objc dynamic var photo2560: String?
     @objc dynamic var text: String = ""
-    @objc dynamic var width: String?
     @objc dynamic var likes: PhotoLikes?
     @objc dynamic var reposts: PhotoReposts?
+    let height = RealmOptional<Int>()
+    let width = RealmOptional<Int>()
+    
 }
 
 class PhotoLikes: Object, Decodable {

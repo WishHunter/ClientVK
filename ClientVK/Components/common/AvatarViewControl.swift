@@ -21,9 +21,16 @@ import UIKit
     
     open var imageName: URL? {
         didSet {
-            if let image = imageName,
-               let data = try? Data(contentsOf: image){
-                imageView.image = UIImage(data: data)
+            if let image = imageName {
+                let task = URLSession.shared.dataTask(with: image) { data, response, error in
+                        guard let data = data, error == nil else { return }
+                        
+                        DispatchQueue.main.async {
+                            self.imageView.image = UIImage(data: data)
+                        }
+                    }
+                    
+                    task.resume()
             } else {
                 imageView.image = UIImage(systemName: "person.crop.circle")
             }

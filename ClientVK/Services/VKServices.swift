@@ -9,13 +9,14 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-
 class VKServices {
     let baseURL = "https://api.vk.com/method/"
     let clientId = "7823707"
     let version = "5.21"
+    
+    let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         
-    func loadFriends(completion: @escaping ([User]) -> Void) {
+    func loadFriends(completion: @escaping () -> Void) {
         let path = "friends.get"
         
         let parameters: Parameters = [
@@ -36,7 +37,7 @@ class VKServices {
                     let users = try decoder.decode(Friends.self, from: data)
                     
                     self.saveFriendsData(users.response.items)
-                    completion(users.response.items)
+                    completion()
                 } catch {
                     print(error)
                 }
@@ -45,10 +46,12 @@ class VKServices {
     
     func saveFriendsData(_ friends: [User]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
             realm.beginWrite()
-            realm.add(friends)
+            realm.add(friends, update: .modified)
             try realm.commitWrite()
+            
+            print(realm.configuration.fileURL as Any)
         } catch {
             print(error)
         }
