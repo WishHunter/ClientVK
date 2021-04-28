@@ -35,6 +35,10 @@ class UserPhoto: Object, Decodable {
     let height = RealmOptional<Int>()
     let width = RealmOptional<Int>()
     
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
 }
 
 class PhotoLikes: Object, Decodable {

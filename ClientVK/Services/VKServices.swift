@@ -118,7 +118,7 @@ class VKServices {
         }
     }
     
-    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping ([UserPhoto]) -> Void) {
+    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping () -> Void) {
         let path = "photos.getAll"
         
         print(friendId)
@@ -141,7 +141,7 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let photos = try decoder.decode(UserPhotos.self, from: data)
                 self.savePhotosData(photos.response.items)
-                completion(photos.response.items)
+                completion()
             } catch {
                 print(error)
             }
@@ -150,9 +150,10 @@ class VKServices {
     
     func savePhotosData(_ photos: [UserPhoto]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
+            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
-            realm.add(photos)
+            realm.add(photos, update: .modified)
             try realm.commitWrite()
         } catch {
             print(error)
