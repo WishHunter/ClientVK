@@ -50,14 +50,12 @@ class VKServices {
             realm.beginWrite()
             realm.add(friends, update: .modified)
             try realm.commitWrite()
-            
-            print(realm.configuration.fileURL as Any)
         } catch {
             print(error)
         }
     }
     
-    func loadCommunities(completion: @escaping ([Group]) -> Void) {
+    func loadCommunities(completion: @escaping () -> Void) {
         let path = "groups.get"
         
         let parameters: Parameters = [
@@ -77,7 +75,7 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let groups = try decoder.decode(Groups.self, from: data)
                 self.saveCommunitiesData(groups.response.items)
-                completion(groups.response.items)
+                completion()
             } catch {
                 print(error)
             }
@@ -86,9 +84,9 @@ class VKServices {
     
     func saveCommunitiesData(_ groups: [Group]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
             realm.beginWrite()
-            realm.add(groups)
+            realm.add(groups, update: .modified)
             try realm.commitWrite()
         } catch {
             print(error)

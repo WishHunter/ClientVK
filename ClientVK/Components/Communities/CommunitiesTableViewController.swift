@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CommunitiesTableViewController: UITableViewController {
 
@@ -17,8 +18,11 @@ class CommunitiesTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
         
-        vkServices.loadCommunities() {[weak self] groups in
-            self?.myGroups = groups
+        loadData()
+        tableView.reloadData()
+        
+        vkServices.loadCommunities() {[weak self] in
+            self?.loadData()
             self?.tableView.reloadData()
         }
     }
@@ -52,8 +56,8 @@ class CommunitiesTableViewController: UITableViewController {
               let _ = allCommunitiesContainer.tableView.indexPathForSelectedRow
         else { return }
         
-        vkServices.loadCommunities() {[weak self] groups in
-            self?.myGroups = groups
+        vkServices.loadCommunities() {[weak self] in
+            self?.loadData()
             self?.tableView.reloadData()
         }
     }
@@ -63,5 +67,18 @@ class CommunitiesTableViewController: UITableViewController {
 //            self.myCommunities.remove(at: indexPath.row)
 //            tableView.deleteRows(at: [indexPath], with: .automatic)
 //        }
+    }
+}
+
+//MARK: - RealmLoadData
+
+extension CommunitiesTableViewController {
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let gorups = realm.objects(Group.self)
+            self.myGroups = Array(gorups)
+            
+        } catch { print(error) }
     }
 }
