@@ -17,6 +17,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     var users = [User]()
     var firstSymbols: [Character] = []
     var sortFriends: [Character: [User]] = [:]
+    
+    var token: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
