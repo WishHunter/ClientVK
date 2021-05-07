@@ -22,22 +22,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
-        
-        if users.count > 0 {
-            alphabetView.letters = (createFirstSimbols())
-            firstSymbols = (createFirstSimbols())
-            sortFriends = (sortUsers())
-            tableView.reloadData()
-        }
-        
-        vkServices.loadFriends() {[weak self] in
-            self?.loadData()
-            self?.alphabetView.letters = (self?.createFirstSimbols())!
-            self?.firstSymbols = (self?.createFirstSimbols())!
-            self?.sortFriends = (self?.sortUsers())!
-            self?.tableView.reloadData()
-        }
+        vkServices.loadFriends()
+        observeRealm()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -161,12 +147,27 @@ extension FriendsTableViewController {
 //MARK: - RealmLoadData
 
 extension FriendsTableViewController {
-    func loadData() {
+    func observeRealm() {
         do {
             let realm = try Realm()
-            let users = realm.objects(User.self)
-            self.users = Array(users)
-            
+            token = realm.objects(User.self).observe { [weak self] (changes: RealmCollectionChange) in
+                guard let self = self,
+                      let tableView = self.tableView else { return }
+                
+                self.users = Array(realm.objects(User.self))
+                if self.users.count > 0 {
+                    self.alphabetView.letters = (self.createFirstSimbols())
+                    self.firstSymbols = (self.createFirstSimbols())
+                    self.sortFriends = (self.sortUsers())
+                }
+                
+                switch changes {
+                    case .initial, .update:
+                        tableView.reloadData()
+                    case .error(let error):
+                        fatalError("\(error)")
+                }
+            }
         } catch { print(error) }
     }
 }
