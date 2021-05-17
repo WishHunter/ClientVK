@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import FirebaseDatabase
 
 @IBDesignable
 class LoginViewController: UIViewController {
@@ -144,7 +145,8 @@ extension LoginViewController: WKNavigationDelegate {
                 }
         
         Session.instance.token = params["access_token"]
-        Session.instance.userId = Int(params["user_id"]!)
+        Session.instance.userId = params["user_id"]
+        
 
         decisionHandler(.cancel)
         self.performSegue(withIdentifier: "toTabBarController", sender: nil)

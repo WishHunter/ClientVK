@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AllCommunitiesTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -13,6 +14,8 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     
     var allGroups = [Group]()
     var vkServices = VKServices()
+    
+    private let ref = Database.database().reference(withPath: "authUser")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +52,17 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "unwindFormAllCommunities", sender: self)
+        let userRef = ref.child(Session.instance.userId ?? "0")
+        
+        print(userRef)
+        
+        let groupRef = userRef.child("\(allGroups[indexPath.item].id)")
+        
+        groupRef.setValue([
+            "groupID": allGroups[indexPath.item].id,
+            "groupName": allGroups[indexPath.item].name
+        ])
+//        self.performSegue(withIdentifier: "unwindFormAllCommunities", sender: self)
     }
     
     // MARK: - Search bar data source
