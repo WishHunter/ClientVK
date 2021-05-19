@@ -15,7 +15,6 @@
 		CE09934825FE7651000D7B4F /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09934625FE7651000D7B4F /* CommunityTableViewCell.swift */; };
 		CE09934925FE7651000D7B4F /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */; };
 		CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */; };
-		CE7E1C3A26511C6B00443AD8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE7E1C3926511C6B00443AD8 /* GoogleService-Info.plist */; };
 		CE7E1C3C26512E0400443AD8 /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */; };
 		CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */; };
 		CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */; };
@@ -23,6 +22,7 @@
 		CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */; };
 		CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */; };
 		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
+		CE922E0E265581540095AE71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE922E0D265581540095AE71 /* GoogleService-Info.plist */; };
 		CE94B14A2621DF6F0052F931 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94B1492621DF6F0052F931 /* Session.swift */; };
 		CE9733CD2626235400590226 /* VKServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CC2626235400590226 /* VKServices.swift */; };
 		CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CF262F58F600590226 /* UserPhoto.swift */; };
@@ -54,7 +54,6 @@
 		CE09934625FE7651000D7B4F /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		CE09934725FE7651000D7B4F /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		CE71324B25E9818D00CE98BD /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
-		CE7E1C3926511C6B00443AD8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
 		CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE922E0D265581540095AE71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE94B1492621DF6F0052F931 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE9733CC2626235400590226 /* VKServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServices.swift; sourceTree = "<group>"; };
 		CE9733CF262F58F600590226 /* UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoto.swift; sourceTree = "<group>"; };
@@ -256,8 +256,8 @@
 				CE71324825E9808900CE98BD /* Models */,
 				CE71324625E9805D00CE98BD /* Helpers */,
 				CE9BA97B25DC477600F0A60C /* Assets.xcassets */,
+				CE922E0D265581540095AE71 /* GoogleService-Info.plist */,
 				CE9BA98025DC477600F0A60C /* Info.plist */,
-				CE7E1C3926511C6B00443AD8 /* GoogleService-Info.plist */,
 			);
 			path = ClientVK;
 			sourceTree = "<group>";
@@ -335,7 +335,7 @@
 				DDA37FB42604A38300C51334 /* NewsTableViewCell.xib in Resources */,
 				CE9BA97A25DC477400F0A60C /* Main.storyboard in Resources */,
 				CE09934925FE7651000D7B4F /* CommunityTableViewCell.xib in Resources */,
-				CE7E1C3A26511C6B00443AD8 /* GoogleService-Info.plist in Resources */,
+				CE922E0E265581540095AE71 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
