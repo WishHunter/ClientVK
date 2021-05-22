@@ -16,7 +16,7 @@ class VKServices {
     
     let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         
-    func loadFriends(completion: @escaping () -> Void) {
+    func loadFriends() {
         let path = "friends.get"
         
         let parameters: Parameters = [
@@ -37,7 +37,6 @@ class VKServices {
                     let users = try decoder.decode(Friends.self, from: data)
                     
                     self.saveFriendsData(users.response.items)
-                    completion()
                 } catch {
                     print(error)
                 }
@@ -55,7 +54,7 @@ class VKServices {
         }
     }
     
-    func loadCommunities(completion: @escaping () -> Void) {
+    func loadCommunities() {
         let path = "groups.get"
         
         let parameters: Parameters = [
@@ -75,7 +74,6 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let groups = try decoder.decode(Groups.self, from: data)
                 self.saveCommunitiesData(groups.response.items)
-                completion()
             } catch {
                 print(error)
             }
@@ -118,11 +116,9 @@ class VKServices {
         }
     }
     
-    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping () -> Void) {
+    func loadPhotos(friendId: Int = Session.instance.userId!) {
         let path = "photos.getAll"
-        
-        print(friendId)
-        
+                
         let parameters: Parameters = [
             "owner_id": friendId,
             "access_token": Session.instance.token ?? "0",
@@ -141,7 +137,6 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let photos = try decoder.decode(UserPhotos.self, from: data)
                 self.savePhotosData(photos.response.items)
-                completion()
             } catch {
                 print(error)
             }
@@ -151,7 +146,6 @@ class VKServices {
     func savePhotosData(_ photos: [UserPhoto]) {
         do {
             let realm = try Realm(configuration: config)
-            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
             realm.add(photos, update: .modified)
             try realm.commitWrite()

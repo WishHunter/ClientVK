@@ -10,21 +10,15 @@ import RealmSwift
 
 class CommunitiesTableViewController: UITableViewController {
 
-    var myGroups = [Group]()
+    var myGroups: Results<Group>?
     var vkServices = VKServices()
+    var token: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communitiesCell")
-        
-        loadData()
-        tableView.reloadData()
-        
-        vkServices.loadCommunities() {[weak self] in
-            self?.loadData()
-            self?.tableView.reloadData()
-        }
+        vkServices.loadCommunities()
+        realmObserve()
     }
 
     // MARK: - Table view data source
@@ -34,15 +28,15 @@ class CommunitiesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myGroups.count
+        return myGroups?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
-        
-        cell.label.text = myGroups[indexPath.item].name
-        let photoURL = URL(string: myGroups[indexPath.item].photo100 ?? "")
+        guard let group = myGroups?[indexPath.item] else { return cell }
+        cell.label.text = group.name
+        let photoURL = URL(string: group.photo100 ?? "")
         cell.photo.imageName = photoURL
         
         return cell
@@ -56,29 +50,36 @@ class CommunitiesTableViewController: UITableViewController {
               let _ = allCommunitiesContainer.tableView.indexPathForSelectedRow
         else { return }
         
-        vkServices.loadCommunities() {[weak self] in
-            self?.loadData()
-            self?.tableView.reloadData()
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            self.myCommunities.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//        }
+        vkServices.loadCommunities()
     }
 }
 
 //MARK: - RealmLoadData
 
 extension CommunitiesTableViewController {
-    func loadData() {
-        do {
-            let realm = try Realm()
-            let gorups = realm.objects(Group.self)
-            self.myGroups = Array(gorups)
+    func realmObserve() {
+        guard let realm = try? Realm() else { return }
+        myGroups = realm.objects(Group.self)
+        
+        token = myGroups?.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self,
+                  let tableView = self.tableView else { return }
             
-        } catch { print(error) }
+            switch changes {
+                case .initial:
+                    tableView.reloadData()
+                case .update(_, let deletions, let insertions, let modifications):
+                    tableView.beginUpdates()
+                    tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                         with: .automatic)
+                    tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                         with: .automatic)
+                    tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                         with: .automatic)
+                    tableView.endUpdates()
+                case .error(let error):
+                    fatalError("\(error)")
+            }
+        }
     }
 }
