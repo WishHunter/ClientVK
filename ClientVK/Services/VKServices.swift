@@ -116,7 +116,7 @@ class VKServices {
         }
     }
     
-    func loadPhotos(friendId: Int = Session.instance.userId!) {
+    func loadPhotos(friendId: Int = Int(Session.instance.userId!)!) {
         let path = "photos.getAll"
                 
         let parameters: Parameters = [
