@@ -1,5 +1,5 @@
 //
-//  AlphabetPicker.swift
+//  AlphabetPickerControl.swift
 //  ClientVK
 //
 //  Created by d.molkov on 10.03.2021.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class AlphabetPicker: UIControl {
+class AlphabetPickerControl: UIControl {
 
     var letters: [Character] = [] {
         didSet {
@@ -77,7 +77,7 @@ class AlphabetPicker: UIControl {
     }
 }
 
-extension AlphabetPicker {
+extension AlphabetPickerControl {
     private func stackConst() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         let widthConst = NSLayoutConstraint(item: stackView!, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0)

@@ -1,17 +1,16 @@
 //
-//  FriendsTableViewCell.swift
+//  CommunityTableViewCell.swift
 //  ClientVK
 //
-//  Created by Denis Molkov on 27.02.2021.
+//  Created by Denis Molkov on 14.03.2021.
 //
 
 import UIKit
 
-class FriendsTableViewCell: UITableViewCell {
+class CommunityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var photo: AvatarView!
-    
+    @IBOutlet weak var photo: AvatarViewControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +18,7 @@ class FriendsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
 
+    }
+    
 }

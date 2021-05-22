@@ -1,5 +1,5 @@
 //
-//  AvatarView.swift
+//  AvatarViewControl.swift
 //  ClientVK
 //
 //  Created by Denis Molkov on 02.03.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable class AvatarView: UIControl {
+@IBDesignable class AvatarViewControl: UIControl {
     
     //MARK: - INSPECTABLES
     
@@ -66,7 +66,7 @@ import UIKit
     }
 }
 
-extension AvatarView {
+extension AvatarViewControl {
     private func styles() {
         button.backgroundColor = .blue
         

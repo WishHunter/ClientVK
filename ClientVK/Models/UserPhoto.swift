@@ -6,40 +6,41 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct UserPhotos: Codable {
-    let response: UserPhotosResponse
+class UserPhotos: Decodable {
+    var response: UserPhotosResponse
 }
 
-struct UserPhotosResponse: Codable {
-    let count: Int
-    let items: [UserPhoto]
+class UserPhotosResponse: Decodable {
+    var count: Int
+    var items: [UserPhoto]
 }
 
-struct UserPhoto: Codable {
-    let albumId: Int
-    let date: Date
-    let hasTags: Bool
-    let height: Int?
-    let id: Int
-    let ownerId: Int
-    let photo130: URL?
-    let photo604: URL?
-    let photo75: URL?
-    let photo807: URL?
-    let photo1280: URL?
-    let photo2560: URL?
-    let text: String
-    let width: Int?
-    let likes: PhotoLikes
-    let reposts: PhotoReposts
+class UserPhoto: Object, Decodable {
+    @objc dynamic var albumId: Int = 0
+    @objc dynamic var date: Date = Date()
+    @objc dynamic var hasTags: Bool = false
+    @objc dynamic var height: String?
+    @objc dynamic var id: Int = 0
+    @objc dynamic var ownerId: Int = 0
+    @objc dynamic var photo130: String?
+    @objc dynamic var photo604: String?
+    @objc dynamic var photo75: String?
+    @objc dynamic var photo807: String?
+    @objc dynamic var photo1280: String?
+    @objc dynamic var photo2560: String?
+    @objc dynamic var text: String = ""
+    @objc dynamic var width: String?
+    @objc dynamic var likes: PhotoLikes?
+    @objc dynamic var reposts: PhotoReposts?
 }
 
-struct PhotoLikes: Codable {
-    let userLikes: Int
-    let count: Int
+class PhotoLikes: Object, Decodable {
+    @objc dynamic var userLikes: Int = 0
+    @objc dynamic var count: Int = 0
 }
 
-struct PhotoReposts: Codable {
-    let count: Int
+class PhotoReposts: Object, Decodable {
+    @objc dynamic var count: Int = 0
 }

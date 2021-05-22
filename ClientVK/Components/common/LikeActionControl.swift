@@ -1,5 +1,5 @@
 //
-//  LikeAction.swift
+//  LikeActionControl.swift
 //  ClientVK
 //
 //  Created by Denis Molkov on 03.03.2021.
@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class LikeAction: UIControl {
+class LikeActionControl: UIControl {
     
     var numberOfLikes: Int = 0 {
         didSet {
@@ -61,7 +61,7 @@ class LikeAction: UIControl {
     }
 }
 
-extension LikeAction {
+extension LikeActionControl {
     
     //MARK: - Styles
     

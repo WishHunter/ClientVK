@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var loaderView: UIView!
+    @IBOutlet weak var loaderView: LoaderView!
     @IBOutlet weak var webView: WKWebView! {
         didSet {
             webView.navigationDelegate = self

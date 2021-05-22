@@ -10,7 +10,7 @@ import UIKit
 class FriendsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var alphabetView: AlphabetPicker!
+    @IBOutlet weak var alphabetView: AlphabetPickerControl!
     
     var vkServices = VKServices()
     var users = [User]()
@@ -57,7 +57,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         cell.label.text = friend?.name
         
         if let photo = friend?.photo100 {
-            cell.photo.imageName = photo
+            let photoURL = URL(string: photo)
+            cell.photo.imageName = photoURL
         }
                 
         return cell
@@ -84,13 +85,13 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     //MARK: - Action
     
-    @IBAction func alphabetPickerValueChanged(_ sender: AlphabetPicker) {
+    @IBAction func alphabetPickerValueChanged(_ sender: AlphabetPickerControl) {
         let section = firstSymbols.firstIndex(of: sender.selectedLetter ?? firstSymbols[0]) ?? 0
         
         tableView.scrollToRow(at: IndexPath.init(row: 0, section: section), at: .top, animated: true)
     }
     
-    @IBAction func avatarClicked(_ sender: AvatarView) {
+    @IBAction func avatarClicked(_ sender: AvatarViewControl) {
         avatarAnimation(sender)
     }
 }
@@ -122,7 +123,7 @@ extension FriendsTableViewController {
 //MARK: - Animation
 
 extension FriendsTableViewController {
-    private func avatarAnimation(_ elem: AvatarView) {
+    private func avatarAnimation(_ elem: AvatarViewControl) {
         UIView.animate(withDuration: 0.2,
                        animations: {
                         elem.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
@@ -132,7 +133,7 @@ extension FriendsTableViewController {
                        })
     }
     
-    private func avatarAnimationReturn(_ elem: AvatarView) {
+    private func avatarAnimationReturn(_ elem: AvatarViewControl) {
         UIView.animate(withDuration: 0.3,
                        delay: 0.1,
                        usingSpringWithDamping: 0.1,

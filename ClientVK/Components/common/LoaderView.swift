@@ -1,5 +1,5 @@
 //
-//  Loader.swift
+//  LoaderView.swift
 //  ClientVK
 //
 //  Created by Denis Molkov on 21.03.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Loader: UIView {
+class LoaderView: UIView {
     
     private var circles: [UIView] = []
     private var stack: UIStackView!
