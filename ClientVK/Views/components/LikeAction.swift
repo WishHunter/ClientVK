@@ -15,7 +15,11 @@ class LikeAction: UIControl {
             label.text = String(self.numberOfLikes)
         }
     }
-    var isLiked: Bool = false
+    var isLiked: Bool = false {
+        didSet {
+            stateButton()
+        }
+    }
     
     private var label: UILabel!
     private var stackView: UIStackView!

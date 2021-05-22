@@ -19,10 +19,11 @@ import UIKit
     private var button: UIButton!
     private var imageView: UIImageView!
     
-    open var imageName: String? {
+    open var imageName: URL? {
         didSet {
-            if let image = imageName {
-                imageView.image = UIImage(named: image)
+            if let image = imageName,
+               let data = try? Data(contentsOf: image){
+                imageView.image = UIImage(data: data)
             } else {
                 imageView.image = UIImage(systemName: "person.crop.circle")
             }

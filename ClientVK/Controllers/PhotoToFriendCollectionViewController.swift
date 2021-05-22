@@ -10,15 +10,18 @@ import UIKit
 class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var user: User?
-    var viewFullScreen: Slider?
+    var userId: Int?
+    var photos = [UserPhoto]()
     var vkServices = VKServices()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        vkServices.loadPhotos()
+                
+        vkServices.loadPhotos(friendId: userId!) {[weak self] photos in
+            self?.photos = photos
+            self?.collectionView.reloadData()
+        }
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -37,47 +40,24 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return user?.photos.count ?? 0
+        return photos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoToFriendCollectionViewCell
 
-        if let image = user?.photos[indexPath.item][0] {
-            cell.photo.image = UIImage(named: image)
+        if let image = photos[indexPath.item].photo604 {
+            let data = try? Data(contentsOf: image)
+            cell.photo.image = UIImage(data: data!)
+        } else if let image = photos[indexPath.item].photo130 {
+            let data = try? Data(contentsOf: image)
+            cell.photo.image = UIImage(data: data!)
         } else {
             cell.photo.image = UIImage(systemName: "person.crop.circle")
         }
         
-        cell.likes.numberOfLikes = Int(user?.photos[indexPath.item][1] ?? "0") ?? 0
+        cell.likes.numberOfLikes = photos[indexPath.item].likes.count
+        cell.likes.isLiked = (photos[indexPath.item].likes.userLikes != 0)
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let _ = user?.photos[indexPath.item][0] {
-            createFullScreenPhoto(indexPath.item)
-        }
-    }
-}
-
-
-extension PhotoToFriendCollectionViewController {
-    
-    
-    
-    func createFullScreenPhoto(_ index: Int) {
-        viewFullScreen = Slider()
-        viewFullScreen?.frame = self.view.bounds
-        viewFullScreen?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
-        self.view.addSubview(viewFullScreen!)
-        viewFullScreen?.activeImageIndex = index
-        viewFullScreen?.user = self.user
-        
-        viewFullScreen?.createView()
-        
-    }
-    
-    
-    
-    
 }

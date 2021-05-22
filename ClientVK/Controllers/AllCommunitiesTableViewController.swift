@@ -11,7 +11,7 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     
     @IBOutlet weak var search: UISearchBar!
     
-    var allCommunities: [Communities] = Communities.fakeContent
+    var allGroups = [Group]()
     var vkServices = VKServices()
     
     override func viewDidLoad() {
@@ -21,7 +21,10 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
         
         search.delegate = self
         
-        vkServices.searchCommunities()
+        vkServices.searchCommunities() {[weak self] groups in
+            self?.allGroups = groups
+            self?.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -31,15 +34,15 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allCommunities.count
+        return allGroups.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
-        cell.label.text = allCommunities[indexPath.item].name
-        cell.photo.imageName = allCommunities[indexPath.item].photo
+        cell.label.text = allGroups[indexPath.item].name
+        cell.photo.imageName = allGroups[indexPath.item].photo100
         
         return cell
     }
@@ -52,13 +55,10 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        allCommunities = Communities.fakeContent.filter({community in
-            return searchText != "" ? community.name.contains(searchText) :
-                                    true
-            
-        })
         let text = searchText != "" ? searchText : " "
-        vkServices.searchCommunities(stroke: text)
-        tableView.reloadData()
+        vkServices.searchCommunities(stroke: text) {[weak self] groups in
+            self?.allGroups = groups
+            self?.tableView.reloadData()
+        }
     }
 }
