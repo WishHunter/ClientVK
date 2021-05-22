@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,9 +20,17 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         
-        vkServices.loadFriends() {[weak self] users in
-            self?.users = users
+        if users.count > 0 {
+            alphabetView.letters = (createFirstSimbols())
+            firstSymbols = (createFirstSimbols())
+            sortFriends = (sortUsers())
+            tableView.reloadData()
+        }
+        
+        vkServices.loadFriends() {[weak self] in
+            self?.loadData()
             self?.alphabetView.letters = (self?.createFirstSimbols())!
             self?.firstSymbols = (self?.createFirstSimbols())!
             self?.sortFriends = (self?.sortUsers())!
@@ -143,5 +152,19 @@ extension FriendsTableViewController {
                         elem.transform = .identity
                        },
                        completion: nil)
+    }
+}
+
+
+//MARK: - RealmLoadData
+
+extension FriendsTableViewController {
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let users = realm.objects(User.self)
+            self.users = Array(users)
+            
+        } catch { print(error) }
     }
 }

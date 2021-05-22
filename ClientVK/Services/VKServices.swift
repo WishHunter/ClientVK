@@ -9,13 +9,14 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-
 class VKServices {
     let baseURL = "https://api.vk.com/method/"
     let clientId = "7823707"
     let version = "5.21"
+    
+    let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         
-    func loadFriends(completion: @escaping ([User]) -> Void) {
+    func loadFriends(completion: @escaping () -> Void) {
         let path = "friends.get"
         
         let parameters: Parameters = [
@@ -36,7 +37,7 @@ class VKServices {
                     let users = try decoder.decode(Friends.self, from: data)
                     
                     self.saveFriendsData(users.response.items)
-                    completion(users.response.items)
+                    completion()
                 } catch {
                     print(error)
                 }
@@ -45,16 +46,16 @@ class VKServices {
     
     func saveFriendsData(_ friends: [User]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
             realm.beginWrite()
-            realm.add(friends)
+            realm.add(friends, update: .modified)
             try realm.commitWrite()
         } catch {
             print(error)
         }
     }
     
-    func loadCommunities(completion: @escaping ([Group]) -> Void) {
+    func loadCommunities(completion: @escaping () -> Void) {
         let path = "groups.get"
         
         let parameters: Parameters = [
@@ -74,7 +75,7 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let groups = try decoder.decode(Groups.self, from: data)
                 self.saveCommunitiesData(groups.response.items)
-                completion(groups.response.items)
+                completion()
             } catch {
                 print(error)
             }
@@ -83,9 +84,9 @@ class VKServices {
     
     func saveCommunitiesData(_ groups: [Group]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
             realm.beginWrite()
-            realm.add(groups)
+            realm.add(groups, update: .modified)
             try realm.commitWrite()
         } catch {
             print(error)
@@ -117,7 +118,7 @@ class VKServices {
         }
     }
     
-    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping ([UserPhoto]) -> Void) {
+    func loadPhotos(friendId: Int = Session.instance.userId!, completion: @escaping () -> Void) {
         let path = "photos.getAll"
         
         print(friendId)
@@ -140,7 +141,7 @@ class VKServices {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let photos = try decoder.decode(UserPhotos.self, from: data)
                 self.savePhotosData(photos.response.items)
-                completion(photos.response.items)
+                completion()
             } catch {
                 print(error)
             }
@@ -149,9 +150,10 @@ class VKServices {
     
     func savePhotosData(_ photos: [UserPhoto]) {
         do {
-            let realm = try Realm()
+            let realm = try Realm(configuration: config)
+            print(realm.configuration.fileURL as Any)
             realm.beginWrite()
-            realm.add(photos)
+            realm.add(photos, update: .modified)
             try realm.commitWrite()
         } catch {
             print(error)

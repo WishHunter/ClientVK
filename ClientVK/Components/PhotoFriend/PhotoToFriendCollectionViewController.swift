@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -17,9 +18,11 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+        collectionView.reloadData()
                 
-        vkServices.loadPhotos(friendId: userId!) {[weak self] photos in
-            self?.photos = photos
+        vkServices.loadPhotos(friendId: userId!) {[weak self] in
+            self?.loadData()
             self?.collectionView.reloadData()
         }
     }
@@ -61,5 +64,18 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
         cell.likes.numberOfLikes = photos[indexPath.item].likes!.count
         cell.likes.isLiked = (photos[indexPath.item].likes!.userLikes != 0)
         return cell
+    }
+}
+
+//MARK: - RealmLoadData
+
+extension PhotoToFriendCollectionViewController {
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let photos = realm.objects(UserPhoto.self).filter("ownerId = \(Int(userId!))")
+            self.photos = Array(photos)
+            
+        } catch { print(error) }
     }
 }
