@@ -98,7 +98,7 @@ with your friends right now!</string>
                                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="9iQ-w0-frQ" kind="presentation" modalPresentationStyle="fullScreen" id="Alr-JX-iVn"/>
+                                                            <segue destination="9iQ-w0-frQ" kind="presentation" identifier="toTabBarController" modalPresentationStyle="fullScreen" id="Alr-JX-iVn"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -126,10 +126,20 @@ with your friends right now!</string>
                                             <constraint firstItem="15L-1M-m7r" firstAttribute="centerY" secondItem="QXV-qj-ZEc" secondAttribute="centerY" id="d11-j2-UTE"/>
                                         </constraints>
                                     </view>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87u-XA-M1T">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QXV-qj-ZEc" firstAttribute="top" secondItem="YLX-UW-t5p" secondAttribute="top" id="COt-vc-abH"/>
                                     <constraint firstAttribute="trailing" secondItem="QXV-qj-ZEc" secondAttribute="trailing" id="DoR-cv-OA4"/>
+                                    <constraint firstItem="87u-XA-M1T" firstAttribute="centerX" secondItem="Zts-BI-bf2" secondAttribute="centerX" id="GDB-oa-dxu"/>
+                                    <constraint firstItem="87u-XA-M1T" firstAttribute="centerY" secondItem="Zts-BI-bf2" secondAttribute="centerY" id="PAU-kK-4cn"/>
                                     <constraint firstItem="QXV-qj-ZEc" firstAttribute="centerX" secondItem="Zts-BI-bf2" secondAttribute="centerX" id="ePH-J2-b6x"/>
                                     <constraint firstItem="QXV-qj-ZEc" firstAttribute="leading" secondItem="Zts-BI-bf2" secondAttribute="leading" id="gjd-gX-QfI"/>
                                     <constraint firstItem="QXV-qj-ZEc" firstAttribute="centerY" secondItem="Zts-BI-bf2" secondAttribute="centerY" id="uSd-jd-sbx"/>
@@ -153,6 +163,8 @@ with your friends right now!</string>
                             <constraint firstItem="QXV-qj-ZEc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="CZR-cb-Gkq"/>
                             <constraint firstItem="Zts-BI-bf2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HL9-H4-jvH"/>
                             <constraint firstItem="jdb-bm-fnf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="J39-E6-FLp"/>
+                            <constraint firstItem="87u-XA-M1T" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.912946" id="JWX-eG-DJC"/>
+                            <constraint firstItem="87u-XA-M1T" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UIf-vt-2aC"/>
                             <constraint firstItem="Zts-BI-bf2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZWN-OI-9Xy"/>
                             <constraint firstItem="Zts-BI-bf2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b4g-z6-tTo"/>
                             <constraint firstItem="Zts-BI-bf2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oo4-mn-XFu"/>
@@ -170,6 +182,7 @@ with your friends right now!</string>
                         <outlet property="loaderView" destination="pwL-Tp-CFD" id="ain-GO-Dgd"/>
                         <outlet property="loginButton" destination="8ry-dV-xkb" id="l5w-kp-Vrt"/>
                         <outlet property="logoImage" destination="wdg-aD-nBx" id="3EF-Hc-15u"/>
+                        <outlet property="webView" destination="87u-XA-M1T" id="iNb-pa-mRF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

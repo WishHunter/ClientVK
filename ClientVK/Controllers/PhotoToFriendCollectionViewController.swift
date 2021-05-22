@@ -12,10 +12,13 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     var user: User?
     var viewFullScreen: Slider?
+    var vkServices = VKServices()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vkServices.loadPhotos()
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

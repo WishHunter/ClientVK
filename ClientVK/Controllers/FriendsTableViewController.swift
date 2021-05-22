@@ -12,6 +12,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alphabetView: AlphabetPicker!
     
+    var vkServices = VKServices()
+    
     var friends: [User] = User.fakeContent
     var firstSymbols: [Character]!
     var sortFriends: [Character: [User]]!
@@ -21,6 +23,8 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         alphabetView.letters = createFirstSimbols()
         firstSymbols = createFirstSimbols()
         sortFriends = sortUsers()
+        
+        vkServices.loadFriends()
     }
     
     override func viewDidAppear(_ animated: Bool) {
