@@ -10,11 +10,19 @@ import UIKit
 class NewsTableViewController: UITableViewController {
     
     var vkServices = VKServices()
+    var news: [NewsItem] = []
+    var profiles: [NewsProfiles] = []
+    var groups: [NewsGroups] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vkServices.loadNews()
+        vkServices.loadNews() {[weak self] (news, profiles, groups) in
+            self?.news = news
+            self?.profiles = profiles
+            self?.groups = groups
+            self?.tableView.reloadData()
+        }
         
         tableView.register(UINib(nibName: "HeaderNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderNewsTableViewCell")
         tableView.register(UINib(nibName: "TextNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "TextNewsTableViewCell")
@@ -38,17 +46,15 @@ class NewsTableViewController: UITableViewController {
         let photosNews = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
         let footer = tableView.dequeueReusableCell(withIdentifier: "FooterNewsTableViewCell", for: indexPath) as! FooterNewsTableViewCell
                 
-//        switch indexPath.item {
-//        case 0:
-//            return header
-//        case 1:
-//            return textNews
-//        case 2:
-//            return photosNews
-//        default:
-//            return footer
-//        }
-        
-        return textNews
+        switch indexPath.item {
+        case 0:
+            return header
+        case 1:
+            return textNews
+        case 2:
+            return photosNews
+        default:
+            return footer
+        }
     }
 }

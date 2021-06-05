@@ -159,7 +159,7 @@ class VKServices {
     }
     
     //MARK: - load news
-    func loadNews() {
+    func loadNews(results: @escaping ([NewsItem], [NewsProfiles], [NewsGroups]) -> Void) {
         let path = "newsfeed.get"
         let parameters: Parameters = [
             "filters": "post",
@@ -167,27 +167,51 @@ class VKServices {
             "v": version,
             "count": 5
         ]
-        
+                
         let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseData {
+        AF.request(url, method: .get, parameters: parameters).responseJSON {
             response in
-            guard let data = response.value else { return }
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let news = try decoder.decode(AllNews.self, from: data)
-                self.saveNewsData(news.response.items)
-            } catch { print(error) }
+            guard let json = response.value else { return }
+            
+            let result = json as! [String: Any]
+            let response = result["response"] as! [String: Any]
+            
+            var posts: [NewsItem] = []
+            var profiles: [NewsProfiles] = []
+            var groups: [NewsGroups] = []
+            let dispatchGroup = DispatchGroup()
+            
+            DispatchQueue.global().async(group: dispatchGroup) {
+                let postsJson = response["items"] as! [[String: Any]]
+                posts = postsJson.map { NewsItem(json: $0) }
+            }
+            
+            DispatchQueue.global().async(group: dispatchGroup) {
+                let profilesJson = response["profiles"] as! [[String: Any]]
+                profiles = profilesJson.map { NewsProfiles(json: $0) }
+            }
+            
+            DispatchQueue.global().async(group: dispatchGroup) {
+                let groupsJson = response["groups"] as! [[String: Any]]
+                groups = groupsJson.map { NewsGroups(json: $0) }
+            }
+            
+            dispatchGroup.notify(queue: DispatchQueue.main) {
+                results(posts, profiles, groups)
+            }
         }
     }
-    
-    func saveNewsData(_ news: [NewsItem]) {
-        do {
-            let realm = try Realm(configuration: config)
-            realm.beginWrite()
-            realm.add(news, update: .modified)
-            try realm.commitWrite()
-        } catch { print(error) }
-    }
 }
+
+    //        AF.request(url, method: .get, parameters: parameters).responseData {
+    //            response in
+    //            guard let data = response.value else { return }
+    //            do {
+    //                let decoder = JSONDecoder()
+    //                decoder.keyDecodingStrategy = .convertFromSnakeCase
+    //                let news = try decoder.decode(AllNews.self, from: data)
+    //                self.saveNewsData(news.response.items)
+    //            } catch { print(error) }
+    //        }
+
