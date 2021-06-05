@@ -204,14 +204,3 @@ class VKServices {
     }
 }
 
-    //        AF.request(url, method: .get, parameters: parameters).responseData {
-    //            response in
-    //            guard let data = response.value else { return }
-    //            do {
-    //                let decoder = JSONDecoder()
-    //                decoder.keyDecodingStrategy = .convertFromSnakeCase
-    //                let news = try decoder.decode(AllNews.self, from: data)
-    //                self.saveNewsData(news.response.items)
-    //            } catch { print(error) }
-    //        }
-
