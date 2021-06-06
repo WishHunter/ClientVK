@@ -24,6 +24,10 @@
 		CE783D352664006C000BE8FB /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D332664006C000BE8FB /* PhotosTableViewCell.swift */; };
 		CE783D362664006C000BE8FB /* PhotosTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE783D342664006C000BE8FB /* PhotosTableViewCell.xib */; };
 		CE783D3A26644422000BE8FB /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3926644422000BE8FB /* News.swift */; };
+		CE783D3C266D26FD000BE8FB /* AsyncOpeation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */; };
+		CE783D3E266D29BE000BE8FB /* GetFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */; };
+		CE783D40266D2D05000BE8FB /* ParseFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */; };
+		CE783D42266D2E9C000BE8FB /* SaveFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */; };
 		CE7E1C3C26512E0400443AD8 /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */; };
 		CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */; };
 		CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */; };
@@ -70,6 +74,10 @@
 		CE783D332664006C000BE8FB /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		CE783D342664006C000BE8FB /* PhotosTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosTableViewCell.xib; sourceTree = "<group>"; };
 		CE783D3926644422000BE8FB /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOpeation.swift; sourceTree = "<group>"; };
+		CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsOperation.swift; sourceTree = "<group>"; };
+		CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseFriendsOperation.swift; sourceTree = "<group>"; };
+		CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsOperation.swift; sourceTree = "<group>"; };
 		CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
 		CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 				CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */,
 				CEDC79272610D8B900D91BBA /* CustomAnimator.swift */,
 				CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */,
+				CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -168,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				CE9733CC2626235400590226 /* VKServices.swift */,
+				CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */,
+				CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */,
+				CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -414,9 +426,11 @@
 			files = (
 				CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */,
 				CE09933E25FD607F000D7B4F /* UITextFieldExtension.swift in Sources */,
+				CE783D3C266D26FD000BE8FB /* AsyncOpeation.swift in Sources */,
 				CE783D3A26644422000BE8FB /* News.swift in Sources */,
 				CE783D312663FC01000BE8FB /* FooterNewsTableViewCell.swift in Sources */,
 				CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */,
+				CE783D3E266D29BE000BE8FB /* GetFriendsOperation.swift in Sources */,
 				CE7E1C3C26512E0400443AD8 /* FirebaseGroup.swift in Sources */,
 				CEDC791D2607E50000D91BBA /* LoaderView.swift in Sources */,
 				CE783D2D2663F944000BE8FB /* TextNewsTableViewCell.swift in Sources */,
@@ -434,6 +448,7 @@
 				CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */,
 				CE783D352664006C000BE8FB /* PhotosTableViewCell.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
+				CE783D42266D2E9C000BE8FB /* SaveFriendsOperation.swift in Sources */,
 				CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */,
 				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
 				CE94B14A2621DF6F0052F931 /* Session.swift in Sources */,
@@ -443,6 +458,7 @@
 				CE9733CD2626235400590226 /* VKServices.swift in Sources */,
 				CEFD950B25EEE611002B9A80 /* LikeActionControl.swift in Sources */,
 				CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */,
+				CE783D40266D2D05000BE8FB /* ParseFriendsOperation.swift in Sources */,
 				5830FF74260204440027F5A1 /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
