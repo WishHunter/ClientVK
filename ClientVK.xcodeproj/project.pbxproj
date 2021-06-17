@@ -35,6 +35,7 @@
 		CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */; };
 		CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */; };
 		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
+		CE8EBF80267B45E70064D4E3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBF7F267B45E70064D4E3 /* AppError.swift */; };
 		CE922E0E265581540095AE71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE922E0D265581540095AE71 /* GoogleService-Info.plist */; };
 		CE94B14A2621DF6F0052F931 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94B1492621DF6F0052F931 /* Session.swift */; };
 		CE9733CD2626235400590226 /* VKServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CC2626235400590226 /* VKServices.swift */; };
@@ -85,6 +86,7 @@
 		CE82C24325EBC12B00FE6896 /* CommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB125EBD44C00E4C42A /* AllCommunitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCommunitiesTableViewController.swift; sourceTree = "<group>"; };
 		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE8EBF7F267B45E70064D4E3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CE922E0D265581540095AE71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE94B1492621DF6F0052F931 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE9733CC2626235400590226 /* VKServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServices.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				CEDC79272610D8B900D91BBA /* CustomAnimator.swift */,
 				CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */,
 				CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */,
+				CE8EBF7F267B45E70064D4E3 /* AppError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -173,13 +176,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CE9733C726261E1700590226 /* Services */ = {
+		CE8EBF7E267B29A30064D4E3 /* Friends Operation */ = {
 			isa = PBXGroup;
 			children = (
-				CE9733CC2626235400590226 /* VKServices.swift */,
 				CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */,
 				CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */,
 				CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */,
+			);
+			path = "Friends Operation";
+			sourceTree = "<group>";
+		};
+		CE9733C726261E1700590226 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EBF7E267B29A30064D4E3 /* Friends Operation */,
+				CE9733CC2626235400590226 /* VKServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -441,6 +452,7 @@
 				CE9BA97325DC477400F0A60C /* AppDelegate.swift in Sources */,
 				CE82C23D25EABB3500FE6896 /* PhotoToFriendCollectionViewCell.swift in Sources */,
 				CE874DB525EBE49C00E4C42A /* User.swift in Sources */,
+				CE8EBF80267B45E70064D4E3 /* AppError.swift in Sources */,
 				CE82C24425EBC12B00FE6896 /* CommunitiesTableViewController.swift in Sources */,
 				CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */,
 				CE9BA97525DC477400F0A60C /* SceneDelegate.swift in Sources */,
@@ -608,6 +620,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XT64G8FBNG;
 				INFOPLIST_FILE = ClientVK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,6 +640,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XT64G8FBNG;
 				INFOPLIST_FILE = ClientVK/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

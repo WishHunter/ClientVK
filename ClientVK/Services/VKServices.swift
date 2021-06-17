@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import RealmSwift
+import PromiseKit
 
 class VKServices {
     let baseURL = "https://api.vk.com/method/"
@@ -34,6 +35,19 @@ class VKServices {
     
     //MARK: - load communities
     func loadCommunities() {
+        
+        getCommunitiesPromise()
+            .then(parseCommunitiesPromise(_:))
+            .get { data in
+                print(data[0])
+            }
+            .done(saveCommunitiesData(_:))
+            .catch { error in
+                print(error)
+            }
+    }
+    
+    func getCommunitiesPromise() -> Promise<Data> {
         let path = "groups.get"
         
         let parameters: Parameters = [
@@ -45,17 +59,28 @@ class VKServices {
         
         let url = baseURL + path
         
-        AF.request(url, method: .get, parameters: parameters).responseData {
-            response in
-            guard let data = response.value else { return }
+        return Promise { resolver in
+            AF.request(url, method: .get, parameters: parameters).responseData {
+                response in
+                guard let data = response.value else {
+                    resolver.reject(AppError.noDataProvided)
+                    return
+                }
+                
+                resolver.fulfill(data)
+            }
+        }
+    }
+    
+    func parseCommunitiesPromise(_ data: Data) -> Promise<[Group]> {
+        
+        return Promise { resolver in
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let groups = try decoder.decode(Groups.self, from: data)
-                self.saveCommunitiesData(groups.response.items)
-            } catch {
-                print(error)
-            }
+                resolver.fulfill(groups.response.items)
+            } catch { resolver.reject(AppError.failedToDecode) }
         }
     }
     
@@ -66,7 +91,7 @@ class VKServices {
             realm.add(groups, update: .modified)
             try realm.commitWrite()
         } catch {
-            print(error)
+            print(AppError.noDataSave)
         }
     }
     

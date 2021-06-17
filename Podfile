@@ -7,6 +7,7 @@ target 'ClientVK' do
 
   pod 'Alamofire', '~> 5.2'
   pod 'RealmSwift'
+  pod 'PromiseKit'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Database'
