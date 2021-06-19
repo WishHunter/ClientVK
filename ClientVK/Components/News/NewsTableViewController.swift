@@ -8,22 +8,47 @@
 import UIKit
 
 class NewsTableViewController: UITableViewController {
+    
+    var vkServices = VKServices()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsTableViewCell")
+        vkServices.loadNews()
+        
+        tableView.register(UINib(nibName: "HeaderNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "HeaderNewsTableViewCell")
+        tableView.register(UINib(nibName: "TextNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "TextNewsTableViewCell")
+        tableView.register(UINib(nibName: "FooterNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "FooterNewsTableViewCell")
+        tableView.register(UINib(nibName: "PhotosTableViewCell", bundle: nil), forCellReuseIdentifier: "PhotosTableViewCell")
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsTableViewCell", for: indexPath) as! NewsTableViewCell
-
-        return cell
+        let header = tableView.dequeueReusableCell(withIdentifier: "HeaderNewsTableViewCell", for: indexPath) as! HeaderNewsTableViewCell
+        let textNews = tableView.dequeueReusableCell(withIdentifier: "TextNewsTableViewCell", for: indexPath) as! TextNewsTableViewCell
+        let photosNews = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
+        let footer = tableView.dequeueReusableCell(withIdentifier: "FooterNewsTableViewCell", for: indexPath) as! FooterNewsTableViewCell
+                
+//        switch indexPath.item {
+//        case 0:
+//            return header
+//        case 1:
+//            return textNews
+//        case 2:
+//            return photosNews
+//        default:
+//            return footer
+//        }
+        
+        return textNews
     }
 }

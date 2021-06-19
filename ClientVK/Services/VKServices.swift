@@ -16,6 +16,7 @@ class VKServices {
     
     let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         
+    //MARK: - load firends
     func loadFriends() {
         let path = "friends.get"
         
@@ -54,6 +55,7 @@ class VKServices {
         }
     }
     
+    //MARK: - load communities
     func loadCommunities() {
         let path = "groups.get"
         
@@ -91,6 +93,7 @@ class VKServices {
         }
     }
     
+    //MARK: - search communities
     func searchCommunities(stroke: String = " ", completion: @escaping ([Group]) -> Void) {
         let path = "groups.search"
         
@@ -116,6 +119,7 @@ class VKServices {
         }
     }
     
+    //MARK: - load photos
     func loadPhotos(friendId: Int = Int(Session.instance.userId!)!) {
         let path = "photos.getAll"
                 
@@ -152,5 +156,38 @@ class VKServices {
         } catch {
             print(error)
         }
+    }
+    
+    //MARK: - load news
+    func loadNews() {
+        let path = "newsfeed.get"
+        let parameters: Parameters = [
+            "filters": "post",
+            "access_token": Session.instance.token ?? "0",
+            "v": version,
+            "count": 5
+        ]
+        
+        let url = baseURL + path
+        
+        AF.request(url, method: .get, parameters: parameters).responseData {
+            response in
+            guard let data = response.value else { return }
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let news = try decoder.decode(AllNews.self, from: data)
+                self.saveNewsData(news.response.items)
+            } catch { print(error) }
+        }
+    }
+    
+    func saveNewsData(_ news: [NewsItem]) {
+        do {
+            let realm = try Realm(configuration: config)
+            realm.beginWrite()
+            realm.add(news, update: .modified)
+            try realm.commitWrite()
+        } catch { print(error) }
     }
 }
