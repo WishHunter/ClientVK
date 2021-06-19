@@ -27,7 +27,6 @@
 		CE783D3C266D26FD000BE8FB /* AsyncOpeation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */; };
 		CE783D3E266D29BE000BE8FB /* GetFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */; };
 		CE783D40266D2D05000BE8FB /* ParseFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */; };
-		CE783D42266D2E9C000BE8FB /* SaveFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */; };
 		CE7E1C3C26512E0400443AD8 /* FirebaseGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */; };
 		CE82C23625EA8BA100FE6896 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */; };
 		CE82C23A25EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */; };
@@ -48,6 +47,7 @@
 		CE9BA97F25DC477600F0A60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9BA97D25DC477600F0A60C /* LaunchScreen.storyboard */; };
 		CE9BA98E25DC59EA00F0A60C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */; };
 		CE9C319A25E2F7CC0002B2B3 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */; };
+		CE9E7C4E267E6DE500289B40 /* SaveFriendsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7C4D267E6DE500289B40 /* SaveFriendsOperation.swift */; };
 		CEDC791D2607E50000D91BBA /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC791C2607E50000D91BBA /* LoaderView.swift */; };
 		CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */; };
 		CEDC79282610D8B900D91BBA /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79272610D8B900D91BBA /* CustomAnimator.swift */; };
@@ -78,7 +78,6 @@
 		CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOpeation.swift; sourceTree = "<group>"; };
 		CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsOperation.swift; sourceTree = "<group>"; };
 		CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseFriendsOperation.swift; sourceTree = "<group>"; };
-		CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsOperation.swift; sourceTree = "<group>"; };
 		CE7E1C3B26512E0400443AD8 /* FirebaseGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGroup.swift; sourceTree = "<group>"; };
 		CE82C23525EA8BA100FE6896 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		CE82C23925EAB86600FE6896 /* PhotoToFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoToFriendCollectionViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		CE9BA98025DC477600F0A60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9BA98D25DC59EA00F0A60C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE9C319925E2F7CC0002B2B3 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CE9E7C4D267E6DE500289B40 /* SaveFriendsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFriendsOperation.swift; sourceTree = "<group>"; };
 		CEDC791C2607E50000D91BBA /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedNavigationController.swift; sourceTree = "<group>"; };
 		CEDC79272610D8B900D91BBA /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 			children = (
 				CE783D3D266D29BE000BE8FB /* GetFriendsOperation.swift */,
 				CE783D3F266D2D05000BE8FB /* ParseFriendsOperation.swift */,
-				CE783D41266D2E9C000BE8FB /* SaveFriendsOperation.swift */,
+				CE9E7C4D267E6DE500289B40 /* SaveFriendsOperation.swift */,
 			);
 			path = "Friends Operation";
 			sourceTree = "<group>";
@@ -460,11 +460,11 @@
 				CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */,
 				CE783D352664006C000BE8FB /* PhotosTableViewCell.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
-				CE783D42266D2E9C000BE8FB /* SaveFriendsOperation.swift in Sources */,
 				CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */,
 				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
 				CE94B14A2621DF6F0052F931 /* Session.swift in Sources */,
 				CE9733D4262F7D4200590226 /* Group.swift in Sources */,
+				CE9E7C4E267E6DE500289B40 /* SaveFriendsOperation.swift in Sources */,
 				CEFD950625EEB9C2002B9A80 /* AvatarViewControl.swift in Sources */,
 				5826C1CF25F90200004B345A /* AlphabetPickerControl.swift in Sources */,
 				CE9733CD2626235400590226 /* VKServices.swift in Sources */,
