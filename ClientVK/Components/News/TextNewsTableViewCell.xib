@@ -24,10 +24,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="rVl-AA-MZN" secondAttribute="bottom" constant="10" id="54J-ee-9ee"/>
-                    <constraint firstItem="rVl-AA-MZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KGl-9g-iEM"/>
-                    <constraint firstAttribute="trailing" secondItem="rVl-AA-MZN" secondAttribute="trailing" constant="10" id="ZAv-8o-358"/>
-                    <constraint firstItem="rVl-AA-MZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qdY-7Z-6to"/>
+                    <constraint firstAttribute="bottom" secondItem="rVl-AA-MZN" secondAttribute="bottom" priority="999" constant="10" id="54J-ee-9ee"/>
+                    <constraint firstItem="rVl-AA-MZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" priority="999" constant="10" id="KGl-9g-iEM"/>
+                    <constraint firstAttribute="trailing" secondItem="rVl-AA-MZN" secondAttribute="trailing" priority="999" constant="10" id="ZAv-8o-358"/>
+                    <constraint firstItem="rVl-AA-MZN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="10" id="qdY-7Z-6to"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
