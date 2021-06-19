@@ -18,41 +18,18 @@ class VKServices {
         
     //MARK: - load firends
     func loadFriends() {
-        let path = "friends.get"
+        let friendsOperationQueue = OperationQueue()
         
-        let parameters: Parameters = [
-            "user_id": Session.instance.userId ?? "0",
-            "access_token": Session.instance.token ?? "0",
-            "v": version,
-            "fields": "photo_100"
-        ]
+        let getFriendsOperation = GetFriendsOperation(baseURL: baseURL, clientId: clientId, version: version)
+        let parseFriendsOperation = ParseFriendsOperation()
+        let saveFriendsOperation = SaveFriendsOperation()
         
-        let url = baseURL + path
+        parseFriendsOperation.addDependency(getFriendsOperation)
+        saveFriendsOperation.addDependency(parseFriendsOperation)
         
-        AF.request(url, method: .get, parameters: parameters).responseData {
-            response in
-                guard let data = response.value else { return }
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let users = try decoder.decode(Friends.self, from: data)
-                    
-                    self.saveFriendsData(users.response.items)
-                } catch {
-                    print(error)
-                }
-            }
-    }
-    
-    func saveFriendsData(_ friends: [User]) {
-        do {
-            let realm = try Realm(configuration: config)
-            realm.beginWrite()
-            realm.add(friends, update: .modified)
-            try realm.commitWrite()
-        } catch {
-            print(error)
-        }
+        friendsOperationQueue.addOperation(getFriendsOperation)
+        friendsOperationQueue.addOperation(parseFriendsOperation)
+        friendsOperationQueue.addOperation(saveFriendsOperation)
     }
     
     //MARK: - load communities

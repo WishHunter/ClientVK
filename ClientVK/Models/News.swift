@@ -20,7 +20,10 @@ class NewsItem {
     init(json: [String: Any]) {
         self.sourceId = json["source_id"] as! Int
         self.date = json["date"] as! Int
-        self.text = json["text"] as! String
+        
+        if let text = json["text"] as? String {
+            self.text = text
+        }
         
         if let attachmentsJson = json["attachments"] as? [[String: Any]] {
             self.attachments = attachmentsJson.map { NewsItemAttachments(json: $0) }
