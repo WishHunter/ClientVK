@@ -10,26 +10,25 @@ import UIKit
 class PhotosTableViewCell: UITableViewCell {
     
     var containerView: UIView!
-
-    var photos: [String] = [
-        "https://avatarko.ru/img/kartinka/33/multfilm_lyagushka_32117.jpg",
-        "https://ribalych.ru/wp-content/uploads/2020/03/smeshnye-kartinki-nastroenie_001-1.jpg",
-        "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg",
-        "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg",
-        "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg",
-        "https://proprikol.ru/wp-content/uploads/2020/10/kartinki-ne-grusti-1.jpg"
-        ]
+    var photoService: PhotoService?
+    var table: UITableView?
+    
+    var photos: [UIImage] = [] {
+        didSet {
+            if photos.count > 0 {
+                createContainer()
+            }
+            
+            if photos.count == 1 {
+                createSinglePhoto()
+            } else if photos.count > 1 {
+                createMultiplePhotos()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        createContainer()
-        
-        if photos.count == 1 {
-            createSinglePhoto()
-        } else {
-            createMultiplePhotos()
-        }
     }
     
     //MARK: - create Container
@@ -55,7 +54,7 @@ class PhotosTableViewCell: UITableViewCell {
     func createSinglePhoto() {
         let photoView = UIImageView()
         
-        createPhoto(container: photoView, url: self.photos[0])
+        photoView.image = self.photos[0]
         
         photoView.contentMode = .scaleAspectFill
         photoView.layer.masksToBounds = true
@@ -75,7 +74,7 @@ class PhotosTableViewCell: UITableViewCell {
         var index = 0
         while index < self.photos.count && index < 4 {
             let photoView = UIImageView()
-            createPhoto(container: photoView, url: self.photos[index])
+            photoView.image = self.photos[index]
             
             photoView.contentMode = .scaleAspectFill
             photoView.layer.masksToBounds = true
@@ -168,20 +167,6 @@ class PhotosTableViewCell: UITableViewCell {
         default:
             break
         }
-    }
-    
-    
-    //MARK: - create Photo task
-    func createPhoto(container: UIImageView, url: String) {
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) {
-            data, response, error in
-            guard let data = data, error == nil else { return }
-            
-            DispatchQueue.main.async {
-                container.image = UIImage(data: data)
-            }
-        }
-        task.resume()
     }
 }
 

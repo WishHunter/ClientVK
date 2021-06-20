@@ -167,7 +167,7 @@ class VKServices {
             "filters": "post",
             "access_token": Session.instance.token ?? "0",
             "v": version,
-            "count": 5
+            "count": 20
         ]
                 
         let url = baseURL + path

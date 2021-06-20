@@ -13,9 +13,12 @@ class NewsTableViewController: UITableViewController {
     var news: [NewsItem] = []
     var profiles: [NewsProfiles] = []
     var groups: [NewsGroups] = []
-
+    var photoService: PhotoService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoService = PhotoService(container: tableView)
         
         vkServices.loadNews() {[weak self] (news, profiles, groups) in
             self?.news = news
@@ -33,11 +36,16 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return news.count
+        news.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if news[section].attachments.count == 0 && news[section].text == "" {
+            return 0
+        } else if news[section].attachments.count == 0 || news[section].text == "" {
+            return 3
+        }
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,16 +53,62 @@ class NewsTableViewController: UITableViewController {
         let textNews = tableView.dequeueReusableCell(withIdentifier: "TextNewsTableViewCell", for: indexPath) as! TextNewsTableViewCell
         let photosNews = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
         let footer = tableView.dequeueReusableCell(withIdentifier: "FooterNewsTableViewCell", for: indexPath) as! FooterNewsTableViewCell
-                
-        switch indexPath.item {
-        case 0:
+        
+        if indexPath.item == 0 {
+            if news[indexPath.section].sourceId > 0 {
+                let author = profiles.filter { profile in
+                    profile.id == news[indexPath.section].sourceId
+                }
+                header.name.text = author[0].lastName + " " + author[0].firstName
+                header.photo.imageName = URL(string: author[0].photo100)
+            } else {
+                let author = groups.filter { group in
+                    group.id == abs(news[indexPath.section].sourceId)
+                }
+                header.name.text = author[0].name
+                header.photo.imageName = URL(string: author[0].photo100)
+            }
+            header.date.text = news[indexPath.section].date
+            
             return header
-        case 1:
-            return textNews
-        case 2:
-            return photosNews
-        default:
-            return footer
+        }
+        
+        if news[indexPath.section].text != "" && news[indexPath.section].attachments.count != 0 {
+            switch indexPath.item {
+                case 1:
+                    textNews.textNews.text = news[indexPath.section].text
+                    return textNews
+                case 2:
+                    news[indexPath.section].photos.forEach { photoUrl in
+                        guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
+                        photosNews.photos.append(photo)
+                    }
+                    return photosNews
+                default:
+                    footer.commentNumber.text = String(news[indexPath.section].comments)
+                    footer.likeNumber.text = String(news[indexPath.section].likes)
+                    footer.shareNumber.text = String(news[indexPath.section].reposts)
+                    return footer
+            }
+        }
+        
+        switch indexPath.item {
+            case 1:
+                if news[indexPath.section].text != "" {
+                    textNews.textNews.text = news[indexPath.section].text
+                    return textNews
+                } else {
+                    news[indexPath.section].photos.forEach { photoUrl in
+                        guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
+                        photosNews.photos.append(photo)
+                    }
+                    return photosNews
+                }
+            default:
+                footer.commentNumber.text = String(news[indexPath.section].comments)
+                footer.likeNumber.text = String(news[indexPath.section].likes)
+                footer.shareNumber.text = String(news[indexPath.section].reposts)
+                return footer
         }
     }
 }
