@@ -45,24 +45,9 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "communitiesCell", for: indexPath) as! CommunityTableViewCell
         
         cell.label.text = allGroups[indexPath.item].name
-        let photoURL = URL(string: allGroups[indexPath.item].photo100 ?? "")
-        cell.photo.imageName = photoURL
+        cell.photo.imageName = URL(string: allGroups[indexPath.item].photo100 ?? "")
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let userRef = ref.child(Session.instance.userId ?? "0")
-        
-        print(userRef)
-        
-        let groupRef = userRef.child("\(allGroups[indexPath.item].id)")
-        
-        groupRef.setValue([
-            "groupID": allGroups[indexPath.item].id,
-            "groupName": allGroups[indexPath.item].name
-        ])
-//        self.performSegue(withIdentifier: "unwindFormAllCommunities", sender: self)
     }
     
     // MARK: - Search bar data source

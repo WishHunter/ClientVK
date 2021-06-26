@@ -80,27 +80,6 @@ class LoginViewController: UIViewController {
     @objc func hideKeyboard() {
         self.scrollView?.endEditing(true)
     }
-    
-    
-    //MARK: - Segue
-    
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        guard identifier == "starterTabBarController" else {
-//            let login = loginInput.text!
-//            let password = passwordInput.text!
-//
-//            if (login != "admin" || password != "admin") {
-//                customAllert("Not correct login or password")
-//                return false
-//            }
-//
-//            Session.instance.token = "123"
-//            Session.instance.userId = 123
-//
-//            return true
-//        }
-//        return true
-//    }
 }
 
 //MARK: - WebViewLoad
