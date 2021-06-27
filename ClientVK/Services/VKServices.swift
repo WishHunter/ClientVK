@@ -161,10 +161,12 @@ class VKServices {
     }
     
     //MARK: - load news
-    func loadNews(results: @escaping ([NewsItem], [NewsProfiles], [NewsGroups]) -> Void) {
+    func loadNews(time: String = "", startFrom: String = "", results: @escaping ([NewsItem], [NewsProfiles], [NewsGroups], String) -> Void) {
         let path = "newsfeed.get"
         let parameters: Parameters = [
             "filters": "post",
+            "start_time": time,
+            "start_from": startFrom,
             "access_token": Session.instance.token ?? "0",
             "v": version,
             "count": 20
@@ -177,11 +179,17 @@ class VKServices {
             guard let json = response.value else { return }
             
             let result = json as! [String: Any]
-            let response = result["response"] as! [String: Any]
+            
+            guard let responseJson = result["response"] as? [String: Any] else {
+                results([], [], [], "")
+                return
+            }
+            let response = responseJson
             
             var posts: [NewsItem] = []
             var profiles: [NewsProfiles] = []
             var groups: [NewsGroups] = []
+            let nextFrom = response["next_from"] as! String
             let dispatchGroup = DispatchGroup()
             
             DispatchQueue.global().async(group: dispatchGroup) {
@@ -200,7 +208,7 @@ class VKServices {
             }
             
             dispatchGroup.notify(queue: DispatchQueue.main) {
-                results(posts, profiles, groups)
+                results(posts, profiles, groups, nextFrom)
             }
         }
     }
