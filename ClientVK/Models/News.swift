@@ -12,6 +12,7 @@ class NewsItem {
     var sourceId = 0
     var date = ""
     var text = ""
+    var shortText = ""
     var attachments: [NewsItemAttachments] = []
     var comments = 0
     var likes = 0
@@ -33,6 +34,11 @@ class NewsItem {
         
         if let text = json["text"] as? String {
             self.text = text
+            if text.count > 200 {
+                self.shortText = String(text.dropLast(text.count - 200))
+            } else {
+                self.shortText = text
+            }
         }
         
         if let attachmentsJson = json["attachments"] as? [[String: Any]] {

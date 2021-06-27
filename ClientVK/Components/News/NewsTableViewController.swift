@@ -83,6 +83,8 @@ class NewsTableViewController: UITableViewController {
         let photosNews = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
         let footer = tableView.dequeueReusableCell(withIdentifier: "FooterNewsTableViewCell", for: indexPath) as! FooterNewsTableViewCell
         
+        //MARK: - add header
+        
         if indexPath.item == 0 {
             if news[indexPath.section].sourceId > 0 {
                 let author = profiles.filter { profile in
@@ -102,13 +104,15 @@ class NewsTableViewController: UITableViewController {
             return header
         }
         
+        //MARK: - add body with text and photos and footer
+        
         if news[indexPath.section].text != "" && news[indexPath.section].attachments.count != 0 {
             switch indexPath.item {
                 case 1:
-                    textNews.textNews.text = news[indexPath.section].text
+                    textNews.fullText = news[indexPath.section].text
+                    textNews.shortText = news[indexPath.section].shortText
                     return textNews
                 case 2:
-                    print(news[indexPath.section].aspectRatio)
                     photosNews.aspectRatio = news[indexPath.section].aspectRatio
                     news[indexPath.section].photos.forEach { photoUrl in
                         guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
@@ -123,13 +127,14 @@ class NewsTableViewController: UITableViewController {
             }
         }
         
+        //MARK: - add body with text or photos and footer
         switch indexPath.item {
             case 1:
                 if news[indexPath.section].text != "" {
-                    textNews.textNews.text = news[indexPath.section].text
+                    textNews.fullText = news[indexPath.section].text
+                    textNews.shortText = news[indexPath.section].shortText
                     return textNews
                 } else {
-                    print(news[indexPath.section].aspectRatio)
                     photosNews.aspectRatio = news[indexPath.section].aspectRatio
                     news[indexPath.section].photos.forEach { photoUrl in
                         guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
