@@ -19,6 +19,8 @@ class NewsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRefreshControl()
+
+        tableView.rowHeight = UITableView.automaticDimension
         
         tableView.prefetchDataSource = self
         
@@ -66,6 +68,14 @@ class NewsTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         news.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
