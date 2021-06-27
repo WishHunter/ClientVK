@@ -15,9 +15,11 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     var photos: Results<UserPhoto>?
     var vkServices = VKServices()
     var token: NotificationToken?
+    var photoService: PhotoService?
     
     override func viewDidLoad() {
-        super.viewDidLoad()                
+        super.viewDidLoad()
+        photoService = PhotoService(container: collectionView)
         vkServices.loadPhotos(friendId: userId!)
         realmObserve()
     }
@@ -47,13 +49,9 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
         guard let photo = photos?[indexPath.item] else { return cell}
 
         if let image = photo.photo604 {
-            let imageURL = URL(string: image)!
-            let data = try? Data(contentsOf: imageURL)
-            cell.photo.image = UIImage(data: data!)
+            cell.photo.image = photoService?.photo(atIndexpath: indexPath, byUrl: image)
         } else if let image = photo.photo130 {
-            let imageURL = URL(string: image)!
-            let data = try? Data(contentsOf: imageURL)
-            cell.photo.image = UIImage(data: data!)
+            cell.photo.image = photoService?.photo(atIndexpath: indexPath, byUrl: image)
         } else {
             cell.photo.image = UIImage(systemName: "person.crop.circle")
         }
