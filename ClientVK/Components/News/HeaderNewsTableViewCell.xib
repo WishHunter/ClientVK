@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-Jr-i1D" customClass="AvatarViewControl" customModule="ClientVK" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdi-Jr-i1D" customClass="AvatarViewControl" customModule="ClientVK" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="60" height="60"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -45,7 +45,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Pdi-Jr-i1D" secondAttribute="bottom" priority="999" constant="10" id="1hF-tq-xYl"/>
-                    <constraint firstItem="Pdi-Jr-i1D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="10" id="Qs9-Da-h4U"/>
+                    <constraint firstItem="Pdi-Jr-i1D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Qs9-Da-h4U"/>
                     <constraint firstItem="lDf-jd-gRU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="999" id="WDe-a0-r3b"/>
                     <constraint firstItem="Pdi-Jr-i1D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" priority="999" constant="10" id="hWM-VB-76X"/>
                     <constraint firstItem="lDf-jd-gRU" firstAttribute="leading" secondItem="Pdi-Jr-i1D" secondAttribute="trailing" priority="999" constant="10" id="oeS-bN-chm"/>

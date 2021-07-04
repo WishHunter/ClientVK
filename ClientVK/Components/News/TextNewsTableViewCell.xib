@@ -40,7 +40,7 @@
                     <constraint firstAttribute="bottom" secondItem="ceV-rm-H3N" secondAttribute="bottom" constant="10" id="0OE-aN-bKB"/>
                     <constraint firstItem="ceV-rm-H3N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9jv-8h-nju"/>
                     <constraint firstAttribute="trailing" secondItem="ceV-rm-H3N" secondAttribute="trailing" constant="10" id="XUp-WL-KDt"/>
-                    <constraint firstItem="ceV-rm-H3N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="d8c-vj-DDb"/>
+                    <constraint firstItem="ceV-rm-H3N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="999" constant="10" id="d8c-vj-DDb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

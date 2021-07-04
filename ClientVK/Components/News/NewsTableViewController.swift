@@ -79,10 +79,8 @@ class NewsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if news[section].attachments.count == 0 && news[section].text == "" {
+        if news[section].photos.count == 0 && news[section].text == "" {
             return 0
-        } else if news[section].attachments.count == 0 || news[section].text == "" {
-            return 3
         }
         return 4
     }
@@ -93,65 +91,33 @@ class NewsTableViewController: UITableViewController {
         let photosNews = tableView.dequeueReusableCell(withIdentifier: "PhotosTableViewCell", for: indexPath) as! PhotosTableViewCell
         let footer = tableView.dequeueReusableCell(withIdentifier: "FooterNewsTableViewCell", for: indexPath) as! FooterNewsTableViewCell
         
-        //MARK: - add header
-        
-        if indexPath.item == 0 {
-            if news[indexPath.section].sourceId > 0 {
-                let author = profiles.filter { profile in
-                    profile.id == news[indexPath.section].sourceId
-                }
-                header.name.text = author[0].lastName + " " + author[0].firstName
-                header.photo.imageName = URL(string: author[0].photo100)
-            } else {
-                let author = groups.filter { group in
-                    group.id == abs(news[indexPath.section].sourceId)
-                }
-                header.name.text = author[0].name
-                header.photo.imageName = URL(string: author[0].photo100)
-            }
-            header.date.text = news[indexPath.section].date
-            
-            return header
-        }
-        
-        //MARK: - add body with text and photos and footer
-        
-        if news[indexPath.section].text != "" && news[indexPath.section].attachments.count != 0 {
-            switch indexPath.item {
-                case 1:
-                    textNews.fullText = news[indexPath.section].text
-                    textNews.shortText = news[indexPath.section].shortText
-                    return textNews
-                case 2:
-                    photosNews.aspectRatio = news[indexPath.section].aspectRatio
-                    news[indexPath.section].photos.forEach { photoUrl in
-                        guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
-                        photosNews.photos.append(photo)
-                    }
-                    return photosNews
-                default:
-                    footer.commentNumber.text = String(news[indexPath.section].comments)
-                    footer.likeNumber.text = String(news[indexPath.section].likes)
-                    footer.shareNumber.text = String(news[indexPath.section].reposts)
-                    return footer
-            }
-        }
-        
-        //MARK: - add body with text or photos and footer
         switch indexPath.item {
-            case 1:
-                if news[indexPath.section].text != "" {
-                    textNews.fullText = news[indexPath.section].text
-                    textNews.shortText = news[indexPath.section].shortText
-                    return textNews
-                } else {
-                    photosNews.aspectRatio = news[indexPath.section].aspectRatio
-                    news[indexPath.section].photos.forEach { photoUrl in
-                        guard let photo = photoService?.photo(atIndexpath: indexPath, byUrl: photoUrl) else { return }
-                        photosNews.photos.append(photo)
+            case 0:
+                if news[indexPath.section].sourceId > 0 {
+                    let author = profiles.filter { profile in
+                        profile.id == news[indexPath.section].sourceId
                     }
-                    return photosNews
+                    header.name.text = author[0].lastName + " " + author[0].firstName
+                    header.photo.imageName = URL(string: author[0].photo100)
+                } else {
+                    let author = groups.filter { group in
+                        group.id == abs(news[indexPath.section].sourceId)
+                    }
+                    header.name.text = author[0].name
+                    header.photo.imageName = URL(string: author[0].photo100)
                 }
+                header.date.text = news[indexPath.section].date
+                return header
+            case 1:
+                textNews.fullText = news[indexPath.section].text
+                textNews.shortText = news[indexPath.section].shortText
+                textNews.table = tableView
+                textNews.indexPath = indexPath
+                return textNews
+            case 2:
+                photosNews.aspectRatio = news[indexPath.section].aspectRatio
+                photosNews.photos = news[indexPath.section].photos
+                return photosNews
             default:
                 footer.commentNumber.text = String(news[indexPath.section].comments)
                 footer.likeNumber.text = String(news[indexPath.section].likes)

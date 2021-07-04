@@ -14,7 +14,7 @@ class PhotosTableViewCell: UITableViewCell {
     var table: UITableView?
     var aspectRatio: Double?
     
-    var photos: [UIImage] = [] {
+    var photos: [String] = [] {
         didSet {
             if photos.count > 0 {
                 createContainer()
@@ -58,13 +58,13 @@ class PhotosTableViewCell: UITableViewCell {
     func createSinglePhoto() {
         let photoView = UIImageView()
         
-        photoView.image = self.photos[0]
+//        photoView.image = self.photos[0]
+        photoView.loadImage(self.photos[0])
         
         photoView.contentMode = .scaleAspectFill
         photoView.layer.masksToBounds = true
         
         containerView.addSubview(photoView)
-        photoView.frame = bounds
         
         photoView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -81,13 +81,13 @@ class PhotosTableViewCell: UITableViewCell {
         var index = 0
         while index < self.photos.count && index < 4 {
             let photoView = UIImageView()
-            photoView.image = self.photos[index]
+//            photoView.image = self.photos[index]
+            photoView.loadImage(self.photos[index])
             
             photoView.contentMode = .scaleAspectFill
             photoView.layer.masksToBounds = true
             
             containerView.addSubview(photoView)
-            photoView.frame = bounds
             
             photoView.translatesAutoresizingMaskIntoConstraints = false
             
