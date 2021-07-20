@@ -12,16 +12,20 @@ class NewsItem {
     var sourceId = 0
     var date = ""
     var text = ""
+    var shortText = ""
     var attachments: [NewsItemAttachments] = []
     var comments = 0
     var likes = 0
     var reposts = 0
     var photos: [String] = []
+    var startTime = ""
+    var aspectRatio = 1.0
     
     init(json: [String: Any]) {
         self.sourceId = json["source_id"] as! Int
         
         if let dateJson = json["date"] as? Int {
+            self.startTime = String(dateJson + 1)
             let date = Date(timeIntervalSince1970: TimeInterval(dateJson))
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm, d MMM y"
@@ -30,14 +34,20 @@ class NewsItem {
         
         if let text = json["text"] as? String {
             self.text = text
+            if text.count > 200 {
+                self.shortText = String(text.dropLast(text.count - 200))
+            } else {
+                self.shortText = text
+            }
         }
         
         if let attachmentsJson = json["attachments"] as? [[String: Any]] {
             self.attachments = attachmentsJson.map { NewsItemAttachments(json: $0) }
         }
         
-        let commentsJson = json["comments"] as! [String: Any]
-        self.comments = commentsJson["count"] as! Int
+        if let commentsJson = json["comments"] as? [String: Any] {
+            self.comments = commentsJson["count"] as! Int
+        }
         
         let likesJson = json["likes"] as! [String: Any]
         self.likes = likesJson["count"] as! Int
@@ -49,6 +59,9 @@ class NewsItem {
             guard let photo = attachment.photo else {
                 return
             }
+            
+            self.aspectRatio = (photo.height ?? 1.0) / (photo.width ?? 1.0)
+            
             if photo.photo807 != "" {
                 self.photos.append(photo.photo807)
             } else if photo.photo604 != "" {
@@ -77,6 +90,8 @@ class NewItemAttachmentsPhoto {
     var photo130 = ""
     var photo604 = ""
     var photo807 = ""
+    var height: Double?
+    var width: Double?
     
     init(json: [String: Any]) {
         if let photo130Json = json["photo130"] as? String {
@@ -87,6 +102,12 @@ class NewItemAttachmentsPhoto {
         }
         if let photo807Json = json["photo_807"] as? String {
             self.photo807 = photo807Json
+        }
+        if let heightJson = json["height"] as? Double {
+            self.height = heightJson
+        }
+        if let widthJson = json["width"] as? Double {
+            self.width = widthJson
         }
     }
 }

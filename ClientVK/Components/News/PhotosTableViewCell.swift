@@ -12,8 +12,9 @@ class PhotosTableViewCell: UITableViewCell {
     var containerView: UIView!
     var photoService: PhotoService?
     var table: UITableView?
+    var aspectRatio: Double?
     
-    var photos: [UIImage] = [] {
+    var photos: [String] = [] {
         didSet {
             if photos.count > 0 {
                 createContainer()
@@ -41,31 +42,37 @@ class PhotosTableViewCell: UITableViewCell {
         containerView.layer.backgroundColor = CGColor(red: 255, green: 0, blue: 0, alpha: 1)
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let topConstrain = containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            topConstrain,
             containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1)
         ])
+        
+        topConstrain.priority = UILayoutPriority(999)
     }
     
     //MARK: - create Single Photos
     func createSinglePhoto() {
         let photoView = UIImageView()
         
-        photoView.image = self.photos[0]
+//        photoView.image = self.photos[0]
+        photoView.loadImage(self.photos[0])
         
         photoView.contentMode = .scaleAspectFill
         photoView.layer.masksToBounds = true
         
         containerView.addSubview(photoView)
-        photoView.frame = bounds
         
         photoView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
-            photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1)
+            photoView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0),
+            photoView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
+            photoView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0),
+            photoView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0),
+            photoView.heightAnchor.constraint(equalToConstant: CGFloat(Double(containerView.frame.width) * (aspectRatio ?? 1)))
         ])
     }
     
@@ -74,15 +81,19 @@ class PhotosTableViewCell: UITableViewCell {
         var index = 0
         while index < self.photos.count && index < 4 {
             let photoView = UIImageView()
-            photoView.image = self.photos[index]
+//            photoView.image = self.photos[index]
+            photoView.loadImage(self.photos[index])
             
             photoView.contentMode = .scaleAspectFill
             photoView.layer.masksToBounds = true
             
             containerView.addSubview(photoView)
-            photoView.frame = bounds
             
             photoView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1)
+            ])
             
             switch self.photos.count {
             case 2:
@@ -103,12 +114,12 @@ class PhotosTableViewCell: UITableViewCell {
         case 0:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor, multiplier: 0.5),
             ])
         default:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor, multiplier: 0.5),
                 photoView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0)
             ])
         }
@@ -119,18 +130,18 @@ class PhotosTableViewCell: UITableViewCell {
         case 0:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1),
             ])
         case 1:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
                 photoView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0)
             ])
         default:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
                 photoView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
                 photoView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0)
             ])
@@ -143,24 +154,24 @@ class PhotosTableViewCell: UITableViewCell {
         case 0:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
             ])
         case 1:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
                 photoView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0)
             ])
         case 2:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
                 photoView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0)
             ])
         case 3:
             NSLayoutConstraint.activate([
                 photoView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
-                photoView.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.5),
+                photoView.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.5),
                 photoView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0),
                 photoView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: 0)
             ])

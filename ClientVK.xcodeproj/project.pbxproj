@@ -37,6 +37,7 @@
 		CE874DB525EBE49C00E4C42A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE874DB425EBE49C00E4C42A /* User.swift */; };
 		CE8EBF80267B45E70064D4E3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8EBF7F267B45E70064D4E3 /* AppError.swift */; };
 		CE922E0E265581540095AE71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE922E0D265581540095AE71 /* GoogleService-Info.plist */; };
+		CE93D4532691BD8C00E470AF /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93D4522691BD8C00E470AF /* UIImageViewExtension.swift */; };
 		CE94B14A2621DF6F0052F931 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE94B1492621DF6F0052F931 /* Session.swift */; };
 		CE9733CD2626235400590226 /* VKServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CC2626235400590226 /* VKServices.swift */; };
 		CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9733CF262F58F600590226 /* UserPhoto.swift */; };
@@ -89,6 +90,7 @@
 		CE874DB425EBE49C00E4C42A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE8EBF7F267B45E70064D4E3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CE922E0D265581540095AE71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE93D4522691BD8C00E470AF /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		CE94B1492621DF6F0052F931 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE9733CC2626235400590226 /* VKServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServices.swift; sourceTree = "<group>"; };
 		CE9733CF262F58F600590226 /* UserPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPhoto.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */,
 				CE783D3B266D26FC000BE8FB /* AsyncOpeation.swift */,
 				CE8EBF7F267B45E70064D4E3 /* AppError.swift */,
+				CE93D4522691BD8C00E470AF /* UIImageViewExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				CE9733CD2626235400590226 /* VKServices.swift in Sources */,
 				CEFD950B25EEE611002B9A80 /* LikeActionControl.swift in Sources */,
 				CE874DB225EBD44C00E4C42A /* AllCommunitiesTableViewController.swift in Sources */,
+				CE93D4532691BD8C00E470AF /* UIImageViewExtension.swift in Sources */,
 				CE783D40266D2D05000BE8FB /* ParseFriendsOperation.swift in Sources */,
 				CE73A6FD267F65DB00C849FF /* PhotoService.swift in Sources */,
 				5830FF74260204440027F5A1 /* NewsTableViewController.swift in Sources */,
