@@ -143,6 +143,7 @@ extension LoginViewController {
     }
     
     func background() {
+        
         let colorBottom =  UIColor(red: 113/255, green: 217/255, blue: 254/255, alpha: 1)
         let colorTop = UIColor(red: 64/255, green: 176/255, blue: 250/255, alpha: 1)
         let endY = 0.5 + view.frame.size.width / view.frame.size.height / 2
@@ -156,6 +157,7 @@ extension LoginViewController {
         imageLayer.frame = self.view.bounds
 
         self.view.insertSubview(imageLayer, at: 1)
+        self.view.layer.backgroundColor = UIColor.darkColor.cgColor
     }
     
     func logo() {

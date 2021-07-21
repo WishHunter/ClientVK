@@ -359,30 +359,6 @@ with your friends right now!</string>
             </objects>
             <point key="canvasLocation" x="5457" y="-607"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="S4A-Ah-jvi">
-            <objects>
-                <viewController id="DEw-8c-iLi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6YC-pO-53c">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wis-iL-d2l">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="CSy-fk-0WD"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Wis-iL-d2l" firstAttribute="width" secondItem="6YC-pO-53c" secondAttribute="width" id="Cgt-wI-45F"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BFS-3a-SiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1958" y="-690"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="394-zR-iY0">
             <objects>
@@ -564,9 +540,6 @@ with your friends right now!</string>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
