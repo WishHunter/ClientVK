@@ -24,6 +24,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         vkServices.loadFriends()
         observeRealm()
+        self.view.backgroundColor = UIColor.darkColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +44,10 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return firstSymbols.count > 0 ? String(firstSymbols[section]) : ""
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.darkBackground
     }
     
     
