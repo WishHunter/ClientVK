@@ -12,16 +12,19 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     
     @IBOutlet weak var collectionView: UICollectionView!
     var userId: Int?
-    var photos: Results<UserPhoto>?
-    var vkServices = VKServices()
+    var photos: [UserPhotoAdapterModel] = []
+    var photoLoadService = UserPhotoAdapter()
     var token: NotificationToken?
-    var photoService: PhotoService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoService = PhotoService(container: collectionView)
-        vkServices.loadPhotos(friendId: userId!)
-        realmObserve()
+        photoLoadService.getUserPhoto(inFriendId: (userId ?? Int(Session.instance.userId!))!, then: {
+            [weak self] photos in
+            self?.photos = photos
+            self?.collectionView.reloadData()
+        })
+        
+        self.collectionView.layer.backgroundColor = UIColor.darkColor.cgColor
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -40,55 +43,22 @@ class PhotoToFriendCollectionViewController: UIViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos?.count ?? 0
+        return photos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as! PhotoToFriendCollectionViewCell
         
-        guard let photo = photos?[indexPath.item] else { return cell}
+        let photo = photos[indexPath.item]
 
-        if let image = photo.photo604 {
-            cell.photo.image = photoService?.photo(atIndexpath: indexPath, byUrl: image)
-        } else if let image = photo.photo130 {
-            cell.photo.image = photoService?.photo(atIndexpath: indexPath, byUrl: image)
+        if let image = photo.photo {
+            cell.photo.loadImage(image)
         } else {
             cell.photo.image = UIImage(systemName: "person.crop.circle")
         }
         
-        cell.likes.numberOfLikes = photo.likes!.count
-        cell.likes.isLiked = (photo.likes!.userLikes != 0)
+        cell.likes.numberOfLikes = photo.likes
+        cell.likes.isLiked = (photo.likes != 0)
         return cell
-    }
-}
-
-//MARK: - RealmLoadData
-
-extension PhotoToFriendCollectionViewController {
-    
-    func realmObserve() {
-        guard let realm = try? Realm() else { return }
-        
-        photos = realm.objects(UserPhoto.self).filter("ownerId = \(Int(userId!))")
-        token = photos?.observe {[weak self] (changes: RealmCollectionChange) in
-            
-            guard let self = self,
-                  let collectionView = self.collectionView else { return }
-            
-            switch changes {
-                case .initial:
-                    collectionView.reloadData()
-                case .update(_, let deletions, let insertions, let modifications):
-                    collectionView.performBatchUpdates({
-                        collectionView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
-                        collectionView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0)}))
-                        collectionView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
-                    }, completion: nil)
-                case .error(let error):
-                    fatalError("\(error)")
-            }
-
-        }
-        
     }
 }

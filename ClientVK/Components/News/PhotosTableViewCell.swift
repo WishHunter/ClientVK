@@ -10,8 +10,6 @@ import UIKit
 class PhotosTableViewCell: UITableViewCell {
     
     var containerView: UIView!
-    var photoService: PhotoService?
-    var table: UITableView?
     var aspectRatio: Double?
     
     var photos: [String] = [] {
@@ -30,6 +28,11 @@ class PhotosTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        photos = []
     }
     
     //MARK: - create Container

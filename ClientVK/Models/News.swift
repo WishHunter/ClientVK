@@ -49,9 +49,10 @@ class NewsItem {
             self.comments = commentsJson["count"] as! Int
         }
         
-        let likesJson = json["likes"] as! [String: Any]
-        self.likes = likesJson["count"] as! Int
-        
+        if let likesJson = json["likes"] as? [String: Any] {
+            self.likes = likesJson["count"] as! Int
+        }
+            
         let repostsJson = json["reposts"] as! [String: Any]
         self.reposts = repostsJson["count"] as! Int
         

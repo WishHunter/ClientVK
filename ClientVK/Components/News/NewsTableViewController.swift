@@ -8,7 +8,7 @@
 import UIKit
 
 class NewsTableViewController: UITableViewController {
-    var vkServices = VKServices()
+    var vkServices = VKServicesProxy(vkServices: VKServices())
     var news: [NewsItem] = []
     var profiles: [NewsProfiles] = []
     var groups: [NewsGroups] = []

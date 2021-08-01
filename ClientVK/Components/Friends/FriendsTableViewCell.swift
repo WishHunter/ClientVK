@@ -15,10 +15,19 @@ class FriendsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        style()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+}
 
+//MARK: - Style
+
+extension FriendsTableViewCell {
+    func style() {
+        self.contentView.layer.backgroundColor = UIColor.darkColor.cgColor
+        label.textColor = UIColor.white
+    }
 }
