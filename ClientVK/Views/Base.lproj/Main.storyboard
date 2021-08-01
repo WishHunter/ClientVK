@@ -148,11 +148,12 @@ with your friends right now!</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="VCc-2I-z1D"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="YLX-UW-t5p"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-Tp-CFD" userLabel="LoaderView" customClass="LoaderView" customModule="ClientVK" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-Tp-CFD" userLabel="LoaderView" customClass="LoaderView" customModule="ClientVK" customModuleProvider="target">
                                 <rect key="frame" x="122" y="435.5" width="170" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="DGn-77-TeV"/>
+                                    <constraint firstAttribute="width" constant="170" id="x0b-Px-fl6"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -13,7 +13,7 @@ class FriendsTableViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var alphabetView: AlphabetPickerControl!
     
-    var vkServices = VKServices()
+    var vkServices = VKServicesProxy(vkServices: VKServices())
     var users = [User]()
     var firstSymbols: [Character] = []
     var sortFriends: [Character: [User]] = [:]

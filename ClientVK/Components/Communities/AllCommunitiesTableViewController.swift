@@ -13,7 +13,7 @@ class AllCommunitiesTableViewController: UITableViewController, UISearchBarDeleg
     @IBOutlet weak var search: UISearchBar!
     
     var allGroups = [Group]()
-    var vkServices = VKServices()
+    var vkServices = VKServicesProxy(vkServices: VKServices())
     
     private let ref = Database.database().reference(withPath: "authUser")
     

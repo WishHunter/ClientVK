@@ -10,7 +10,7 @@ import Alamofire
 import RealmSwift
 import PromiseKit
 
-class VKServices {
+class VKServices: VKServicesInterface {
     let baseURL = "https://api.vk.com/method/"
     let clientId = "7823707"
     let version = "5.21"

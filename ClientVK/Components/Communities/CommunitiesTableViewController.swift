@@ -11,7 +11,7 @@ import RealmSwift
 class CommunitiesTableViewController: UITableViewController {
 
     var myGroups: Results<Group>?
-    var vkServices = VKServices()
+    var vkServices = VKServicesProxy(vkServices: VKServices())
     var token: NotificationToken?
     
     override func viewDidLoad() {

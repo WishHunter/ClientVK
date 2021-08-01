@@ -10,7 +10,7 @@ import RealmSwift
 
 final class UserPhotoAdapter {
     
-    private let vkServices = VKServices()
+    private let vkServices = VKServicesProxy(vkServices: VKServices())
     private var token: NotificationToken?
     
     private var realmNotificationTokens: [Int: NotificationToken] = [:]

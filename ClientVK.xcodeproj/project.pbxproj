@@ -57,6 +57,8 @@
 		CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */; };
 		CEDC79282610D8B900D91BBA /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC79272610D8B900D91BBA /* CustomAnimator.swift */; };
 		CEDC792B2610FD3200D91BBA /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */; };
+		CEE08AE226B6DBBC006AE12A /* VKServicesInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE08AE126B6DBBC006AE12A /* VKServicesInterface.swift */; };
+		CEE08AE426B6DCA6006AE12A /* VKServicesProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE08AE326B6DCA6006AE12A /* VKServicesProxy.swift */; };
 		CEFD950625EEB9C2002B9A80 /* AvatarViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950525EEB9C2002B9A80 /* AvatarViewControl.swift */; };
 		CEFD950B25EEE611002B9A80 /* LikeActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFD950A25EEE611002B9A80 /* LikeActionControl.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +117,8 @@
 		CEDC79242610D78400D91BBA /* AnimatedNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedNavigationController.swift; sourceTree = "<group>"; };
 		CEDC79272610D8B900D91BBA /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
 		CEDC792A2610FD3200D91BBA /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
+		CEE08AE126B6DBBC006AE12A /* VKServicesInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServicesInterface.swift; sourceTree = "<group>"; };
+		CEE08AE326B6DCA6006AE12A /* VKServicesProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServicesProxy.swift; sourceTree = "<group>"; };
 		CEFD950525EEB9C2002B9A80 /* AvatarViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewControl.swift; sourceTree = "<group>"; };
 		CEFD950A25EEE611002B9A80 /* LikeActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeActionControl.swift; sourceTree = "<group>"; };
 		E1A4365C21AB72E6BC19BFB8 /* Pods_ClientVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClientVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +210,8 @@
 				CE9733CC2626235400590226 /* VKServices.swift */,
 				CE73A6FC267F65DB00C849FF /* PhotoService.swift */,
 				CE69B60F26A8ACC9008F4EEC /* UserPhotoAdapter.swift */,
+				CEE08AE126B6DBBC006AE12A /* VKServicesInterface.swift */,
+				CEE08AE326B6DCA6006AE12A /* VKServicesProxy.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,6 +483,8 @@
 				CE9733D0262F58F600590226 /* UserPhoto.swift in Sources */,
 				CE783D352664006C000BE8FB /* PhotosTableViewCell.swift in Sources */,
 				CE09934125FD6AA8000D7B4F /* UIViewExtension.swift in Sources */,
+				CEE08AE426B6DCA6006AE12A /* VKServicesProxy.swift in Sources */,
+				CEE08AE226B6DBBC006AE12A /* VKServicesInterface.swift in Sources */,
 				CEDC79252610D78400D91BBA /* AnimatedNavigationController.swift in Sources */,
 				CE71324C25E9818D00CE98BD /* FriendsTableViewController.swift in Sources */,
 				CE69B61226A8B7E7008F4EEC /* UIColorExtension.swift in Sources */,
